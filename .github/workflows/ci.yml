@@ -24,6 +24,4 @@ jobs:
       - run: nix develop --quiet -c just ci
       - name: Deploy PR preview
         if: github.event_name == 'pull_request'
-        run: |
-          npm install -g surge
-          surge dist ${{ github.repository_owner }}-${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: npx surge dist ${{ github.repository_owner }}-${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}

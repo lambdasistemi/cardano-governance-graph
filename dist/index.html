@@ -66,17 +66,26 @@
     gap: 6px;
   }
 
-  .depth-label, .depth-value {
+  .depth-label {
     font-size: 12px;
     color: #8b949e;
   }
 
-  .depth-value { color: #c9d1d9; min-width: 8px; }
-
-  input[type="range"] {
-    width: 80px;
-    accent-color: #58a6ff;
+  .depth-btn {
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: inherit;
+    transition: all 0.15s ease;
+    min-width: 32px;
   }
+
+  .depth-btn:hover { background: #30363d; border-color: #8b949e; }
+  .depth-btn.active { background: #1f3a5f; border-color: #58a6ff; color: #58a6ff; }
 
   .filters {
     position: absolute;

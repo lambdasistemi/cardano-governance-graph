@@ -35,8 +35,9 @@ Research these sources IN ORDER OF AUTHORITY. When sources conflict, prefer earl
 5. **developers.cardano.org governance actions**: https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/
 6. **developers.cardano.org constitutional committee guide**: https://developers.cardano.org/docs/governance/cardano-governance/constitutional-committee-guide/
 7. **Cardano Foundation blog posts on governance**: https://cardanofoundation.org/blog/understanding-cardano-governance-actions, https://cardanofoundation.org/blog/strengthens-commitment-governance-drep
-8. **GovTool documentation**: https://docs.gov.tools/overview/what-is-cardano-govtool
-9. **Plutus cost model generation**: https://github.com/IntersectMBO/plutus/blob/master/plutus-core/cost-model/CostModelGeneration.md
+8. **Cardano.org governance action flowcharts (source data)**: https://github.com/cardano-foundation/cardano-org/tree/main/src/data — the JSON files `governanceChartsGeneral.json`, `governanceChartsInfoActions.json`, `governanceChartsProtocolParams.json`, `governanceChartsCriticalParams.json` contain the CF's official flowchart data with exact voting thresholds per action type, including special cases for specific parameters
+9. **GovTool documentation**: https://docs.gov.tools/overview/what-is-cardano-govtool
+10. **Plutus cost model generation**: https://github.com/IntersectMBO/plutus/blob/master/plutus-core/cost-model/CostModelGeneration.md
 
 ### Important rules
 
@@ -45,6 +46,8 @@ Research these sources IN ORDER OF AUTHORITY. When sources conflict, prefer earl
 - **Be substantive in descriptions**. Each node description should be 3-6 sentences explaining what the concept IS and WHY it matters. Each edge description should explain WHY the relationship exists, not just restate the label.
 - **Include current parameter values** where relevant (e.g., govActionDeposit = 100,000 ada, dRepActivity = 20 epochs). Note these may change — the regenerator should look up current values.
 - **Include voting thresholds** in action type descriptions and threshold mechanism descriptions.
+- **Cross-check thresholds against the CF chart data** in `cardano-foundation/cardano-org`. Some parameters have special thresholds that differ from their group defaults (e.g., `committeeMaxTermLength` only requires DRep 67% with no CC vote; deposit parameters use Governance group thresholds at 75%).
+- **Include the treasury budgeting process** if applicable: Net Change Limit (Info Action with DRep 50% + CC 2/3) → Budget approval → Treasury Withdrawal. This multi-step process is documented in the CF's governance action charts.
 
 ### Node schema
 

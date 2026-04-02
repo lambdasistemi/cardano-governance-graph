@@ -41,9 +41,9 @@ foreign import onNodeHover
   :: (String -> Effect Unit) -> Effect Unit
 
 -- | Register a hover callback on edges.
--- | Receives source id, target id, label.
+-- | Receives source id, target id, label, description.
 foreign import onEdgeHover
-  :: (String -> String -> String -> Effect Unit)
+  :: (String -> String -> String -> String -> Effect Unit)
   -> Effect Unit
 
 -- | Mark a node as the focus root (white border).

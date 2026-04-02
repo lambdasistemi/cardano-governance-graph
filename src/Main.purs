@@ -46,6 +46,7 @@ type EdgeInfo =
   { sourceLabel :: String
   , targetLabel :: String
   , label :: String
+  , description :: String
   }
 
 -- | Application state.
@@ -62,7 +63,7 @@ data Action
   = Initialize
   | NodeTapped String
   | NodeHovered String
-  | EdgeHovered String String String
+  | EdgeHovered String String String String
   | SetDepth Int
   | FitAll
   | NavigateTo String
@@ -184,6 +185,8 @@ renderEdgeDetail edge =
                 [ HH.text edge.targetLabel ]
             ]
         ]
+    , HH.p [ cls "description" ]
+        [ HH.text edge.description ]
     ]
 
 renderNodeDetail
@@ -288,9 +291,9 @@ handleAction = case _ of
     void $ H.subscribe hoverSub.emitter
     edgeSub <- liftEffect HS.create
     liftEffect $ Cy.onEdgeHover
-      \src tgt lbl ->
+      \src tgt lbl desc ->
         HS.notify edgeSub.listener
-          (EdgeHovered src tgt lbl)
+          (EdgeHovered src tgt lbl desc)
     void $ H.subscribe edgeSub.emitter
     result <- liftAff loadGraphData
     case result of
@@ -317,7 +320,7 @@ handleAction = case _ of
       { selected = node, hoveredEdge = Nothing }
     liftEffect $ Cy.markRoot nodeId
 
-  EdgeHovered srcId tgtId lbl -> do
+  EdgeHovered srcId tgtId lbl desc -> do
     state <- H.get
     let
       srcNode = Map.lookup srcId state.graph.nodes
@@ -333,6 +336,7 @@ handleAction = case _ of
           { sourceLabel: srcLabel
           , targetLabel: tgtLabel
           , label: lbl
+          , description: desc
           }
       , selected = Nothing
       }

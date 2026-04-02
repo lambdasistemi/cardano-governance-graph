@@ -192,7 +192,7 @@ export const onEdgeHover = (callback) => () => {
   if (!_cy) return;
   _cy.on("mouseover", "edge", function (evt) {
     var d = evt.target.data();
-    callback(d.source)(d.target)(d.label || "")();
+    callback(d.source)(d.target)(d.label || "")(d.description || "")();
   });
 };
 

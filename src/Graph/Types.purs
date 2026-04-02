@@ -118,6 +118,7 @@ type Edge =
   { source :: NodeId
   , target :: NodeId
   , label :: String
+  , description :: String
   }
 
 -- | The full graph: nodes, edges, and adjacency.

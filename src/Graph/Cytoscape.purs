@@ -43,5 +43,6 @@ mkEdgeEl i edge = unsafeToForeign
       , source: edge.source
       , target: edge.target
       , label: edge.label
+      , description: edge.description
       }
   }

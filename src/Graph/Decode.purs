@@ -53,7 +53,9 @@ decodeEdge json = do
   source <- lmap' $ obj .: "source"
   target <- lmap' $ obj .: "target"
   label <- lmap' $ obj .: "label"
-  pure { source, target, label }
+  description <- lmap' $
+    fromMaybe "" <$> obj .:? "description"
+  pure { source, target, label, description }
 
 lmap'
   :: forall a

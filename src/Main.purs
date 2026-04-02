@@ -7,10 +7,10 @@ import Data.Array as Array
 import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Map as Map
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Maybe (Maybe(..))
 import Data.Set (Set)
 import Data.Set as Set
-import Data.String as String
+
 import Effect (Effect)
 import Effect.Aff (Aff)
 import Effect.Aff.Class (liftAff)
@@ -111,19 +111,19 @@ renderControls state =
     , HH.div [ cls "depth-control" ]
         [ HH.span [ cls "depth-label" ]
             [ HH.text "Depth:" ]
-        , HH.input
-            [ HP.type_ HP.InputRange
-            , HP.min 1.0
-            , HP.max 4.0
-            , HP.value (show state.depth)
-            , HP.step (HP.Step 1.0)
-            , HE.onValueInput
-                ( \v -> SetDepth
-                    (fromMaybe 1 (readInt v))
+        , depthBtn 1 state.depth
+        , depthBtn 2 state.depth
+        , depthBtn 3 state.depth
+        , HH.button
+            [ cls
+                ( "depth-btn"
+                    <> if state.depth >= 99
+                      then " active"
+                      else ""
                 )
+            , HE.onClick \_ -> SetDepth 99
             ]
-        , HH.span [ cls "depth-value" ]
-            [ HH.text (show state.depth) ]
+            [ HH.text "All" ]
         ]
     , btn "Reset" Reset false
     ]
@@ -420,6 +420,21 @@ loadGraphData = do
 
 -- Helpers
 
+depthBtn
+  :: forall m
+   . Int
+  -> Int
+  -> H.ComponentHTML Action () m
+depthBtn n current =
+  HH.button
+    [ cls
+        ( "depth-btn"
+            <> if n == current then " active" else ""
+        )
+    , HE.onClick \_ -> SetDepth n
+    ]
+    [ HH.text (show n) ]
+
 btn
   :: forall m
    . String
@@ -453,10 +468,3 @@ kindColor ParamGroup = "#e3b341"
 kindColor Parameter = "#a5d6a7"
 kindColor Tool = "#56d4dd"
 
-readInt :: String -> Maybe Int
-readInt s = case String.trim s of
-  "1" -> Just 1
-  "2" -> Just 2
-  "3" -> Just 3
-  "4" -> Just 4
-  _ -> Nothing

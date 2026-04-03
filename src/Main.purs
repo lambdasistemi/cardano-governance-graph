@@ -20,6 +20,8 @@ import Fetch (Method(..), fetch)
 import Graph.Cytoscape as GCy
 import Graph.Decode (decodeGraph)
 import Graph.Operations (neighborhood, subgraph)
+import Data.Argonaut.Decode.Class (decodeJson)
+import Data.Argonaut.Decode.Error (printJsonDecodeError)
 import Data.Argonaut.Parser as AP
 import Graph.Search (SearchResult(..), search)
 import Tutorial (Tutorial, TutorialStop, decodeTutorial)
@@ -53,6 +55,14 @@ type EdgeInfo =
   , description :: String
   }
 
+-- | Entry in the tutorial index.
+type TutorialEntry =
+  { id :: String
+  , title :: String
+  , description :: String
+  , file :: String
+  }
+
 -- | Application state.
 type State =
   { graph :: Graph
@@ -61,9 +71,11 @@ type State =
   , depth :: Int
   , searchQuery :: String
   , searchResults :: Array SearchResult
+  , tutorialIndex :: Array TutorialEntry
   , tutorial :: Maybe Tutorial
   , tutorialStep :: Int
   , tutorialActive :: Boolean
+  , showTutorialMenu :: Boolean
   , error :: Maybe String
   }
 
@@ -78,7 +90,8 @@ data Action
   | SelectSearchResult SearchResult
   | FitAll
   | NavigateTo String
-  | StartTutorial
+  | ToggleTutorialMenu
+  | StartTutorial String
   | TutorialNext
   | TutorialPrev
   | ExitTutorial
@@ -93,9 +106,11 @@ component = H.mkComponent
       , depth: 99
       , searchQuery: ""
       , searchResults: []
+      , tutorialIndex: []
       , tutorial: Nothing
       , tutorialStep: 0
       , tutorialActive: false
+      , showTutorialMenu: false
       , error: Nothing
       }
   , render
@@ -121,22 +136,28 @@ renderControls
   :: forall m. State -> H.ComponentHTML Action () m
 renderControls state =
   HH.div [ cls "controls" ]
-    [ HH.button
-        [ cls
-            ( "control-btn"
-                <> if state.tutorialActive
-                  then " active"
-                  else ""
-            )
-        , HE.onClick \_ ->
-            if state.tutorialActive then ExitTutorial
-            else StartTutorial
-        ]
-        [ HH.text
-            ( if state.tutorialActive then
-                "Exit Tour"
-              else "Guided Tour"
-            )
+    [ HH.div [ cls "tour-menu-wrapper" ]
+        [ HH.button
+            [ cls
+                ( "control-btn"
+                    <> if state.tutorialActive
+                      then " active"
+                      else ""
+                )
+            , HE.onClick \_ ->
+                if state.tutorialActive then
+                  ExitTutorial
+                else ToggleTutorialMenu
+            ]
+            [ HH.text
+                ( if state.tutorialActive then
+                    "Exit Tour"
+                  else "Guided Tours"
+                )
+            ]
+        , if state.showTutorialMenu then
+            renderTutorialMenu state.tutorialIndex
+          else HH.text ""
         ]
     , HH.button
         [ cls "control-btn"
@@ -161,6 +182,25 @@ renderControls state =
             [ HH.text "All" ]
         ]
     ]
+
+renderTutorialMenu
+  :: forall m
+   . Array TutorialEntry
+  -> H.ComponentHTML Action () m
+renderTutorialMenu entries =
+  HH.div [ cls "tour-menu" ]
+    ( map mkEntry entries )
+  where
+  mkEntry entry =
+    HH.div
+      [ cls "tour-menu-item"
+      , HE.onClick \_ -> StartTutorial entry.file
+      ]
+      [ HH.div [ cls "tour-menu-title" ]
+          [ HH.text entry.title ]
+      , HH.div [ cls "tour-menu-desc" ]
+          [ HH.text entry.description ]
+      ]
 
 renderSearchBox
   :: forall m. State -> H.ComponentHTML Action () m
@@ -265,9 +305,9 @@ renderEmptyState =
         ]
     , HH.button
         [ cls "tutorial-start-btn"
-        , HE.onClick \_ -> StartTutorial
+        , HE.onClick \_ -> ToggleTutorialMenu
         ]
-        [ HH.text "Take the guided tour" ]
+        [ HH.text "Take a guided tour" ]
     ]
 
 renderTutorialContent
@@ -501,6 +541,12 @@ handleAction = case _ of
           , selected = start
           }
         renderGraph
+    -- Load tutorial index
+    idxResult <- liftAff loadTutorialIndex
+    case idxResult of
+      Left _ -> pure unit
+      Right idx ->
+        H.modify_ _ { tutorialIndex = idx }
 
   NodeTapped nodeId -> do
     state <- H.get
@@ -580,8 +626,12 @@ handleAction = case _ of
   FitAll ->
     liftEffect Cy.fitAll
 
-  StartTutorial -> do
-    result <- liftAff loadTutorial
+  ToggleTutorialMenu ->
+    H.modify_ \s -> s
+      { showTutorialMenu = not s.showTutorialMenu }
+
+  StartTutorial file -> do
+    result <- liftAff (loadTutorialFile file)
     case result of
       Left _ -> pure unit
       Right tut -> do
@@ -589,6 +639,7 @@ handleAction = case _ of
           { tutorial = Just tut
           , tutorialStep = 0
           , tutorialActive = true
+          , showTutorialMenu = false
           }
         applyTutorialStop
 
@@ -696,11 +747,18 @@ applyTutorialStop = do
         }
       renderGraph
 
-loadTutorial :: Aff (Either String Tutorial)
-loadTutorial = do
-  resp <- fetch
-    "data/tutorials/governance-basics.json"
+loadTutorialIndex :: Aff (Either String (Array TutorialEntry))
+loadTutorialIndex = do
+  resp <- fetch "data/tutorials/index.json"
     { method: GET }
+  body <- resp.text
+  pure case AP.jsonParser body of
+    Left err -> Left err
+    Right json -> lmapShow $ decodeJson json
+
+loadTutorialFile :: String -> Aff (Either String Tutorial)
+loadTutorialFile file = do
+  resp <- fetch file { method: GET }
   body <- resp.text
   pure case AP.jsonParser body of
     Left err -> Left err
@@ -731,6 +789,10 @@ depthBtn n current =
     , HE.onClick \_ -> SetDepth n
     ]
     [ HH.text (show n) ]
+
+lmapShow :: forall a. Either _ a -> Either String a
+lmapShow (Left e) = Left (printJsonDecodeError e)
+lmapShow (Right a) = Right a
 
 cls
   :: forall r i

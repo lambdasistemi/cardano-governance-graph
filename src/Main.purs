@@ -396,6 +396,23 @@ renderTutorialContent state =
                       [ HH.text node.label ]
                   , HH.p [ cls "tutorial-hovered-desc" ]
                       [ HH.text node.description ]
+                  , if Array.null node.links then
+                      HH.text ""
+                    else
+                      HH.ul [ cls "links" ]
+                        ( map
+                            ( \l -> HH.li_
+                                [ HH.a
+                                    [ HP.href l.url
+                                    , HP.target "_blank"
+                                    , HP.rel "noopener"
+                                    ]
+                                    [ HH.text l.label
+                                    ]
+                                ]
+                            )
+                            node.links
+                        )
                   ]
           ]
 

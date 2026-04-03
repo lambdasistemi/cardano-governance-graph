@@ -11,14 +11,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: paolino/dev-assets/setup-nix@v0.0.1
         with:
-          node-version: 22
-      - run: |
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - run: nix build
+      - name: Validate graph data
+        run: |
           node -e "
             const d=require('./data/graph.json');
             const ids=new Set(d.nodes.map(n=>n.id));
@@ -33,7 +35,5 @@ jobs:
       - name: Deploy PR preview
         if: github.event_name == 'pull_request'
         run: |
-          curl -sL https://lambdasistemi.github.io/graph-browser/index.html -o dist/index.html
-          curl -sL https://lambdasistemi.github.io/graph-browser/index.js -o dist/index.js
-          cp -r data dist/data
-          npx surge dist ${{ github.repository_owner }}-${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+          cp -r result dist-preview
+          npx surge dist-preview ${{ github.repository_owner }}-${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}

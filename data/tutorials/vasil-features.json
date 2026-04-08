@@ -1,0 +1,25 @@
+{
+  "id": "vasil-features",
+  "title": "Vasil / Babbage Features",
+  "description": "CIP-31, CIP-32, CIP-33 — the upgrades that made smart contracts practical.",
+  "stops": [
+    {
+      "node": "reference-scripts",
+      "depth": 2,
+      "title": "Reference Scripts (CIP-33)",
+      "narrative": "[Reference scripts](node:reference-scripts) store scripts on-chain in a UTxO. Transactions reference them instead of including the script body. Dramatically reduces fees — a popular contract is deployed once and reused by everyone."
+    },
+    {
+      "node": "reference-inputs",
+      "depth": 2,
+      "title": "Reference Inputs (CIP-31)",
+      "narrative": "[Reference inputs](node:reference-inputs) let transactions read UTxOs without spending them. This enables the [oracle pattern](node:oracle-pattern): publish price data once, read it from many contracts simultaneously without contention."
+    },
+    {
+      "node": "inline-datums",
+      "depth": 2,
+      "title": "Inline Datums (CIP-32)",
+      "narrative": "[Inline datums](node:inline-datums) store the full [datum](node:datum) directly in the UTxO. Before CIP-32, you had to manage datum hashes off-chain. Now contract state is visible to everyone on-chain — essential for composability."
+    }
+  ]
+}

@@ -19,7 +19,7 @@
         system:
         let
           pkgs = import nixpkgs { inherit system; };
-          browser = graph-browser.packages.${system}.default;
+          browser = graph-browser.packages.${system}.lib;
         in
         {
           default = pkgs.runCommand "cardano-governance-graph" { } ''

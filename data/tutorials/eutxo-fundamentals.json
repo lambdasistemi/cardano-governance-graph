@@ -1,0 +1,31 @@
+{
+  "id": "eutxo-fundamentals",
+  "title": "EUTxO Fundamentals",
+  "description": "The transaction model that makes Cardano smart contracts work.",
+  "stops": [
+    {
+      "node": "eutxo",
+      "depth": 2,
+      "title": "The Extended UTxO Model",
+      "narrative": "Cardano extends Bitcoin's UTxO model with three key additions: [datums](node:datum) for state, [redeemers](node:redeemer) for user actions, and [script context](node:script-context) for transaction introspection. This makes UTxOs programmable while keeping transactions deterministic — you know the outcome before submitting."
+    },
+    {
+      "node": "datum",
+      "depth": 2,
+      "title": "Datums: Contract State",
+      "narrative": "A [datum](node:datum) is data attached to a UTxO locked by a script. It represents the contract's state. With [inline datums](node:inline-datums) (CIP-32), the full datum lives on-chain — anyone can read the contract state by querying the UTxO."
+    },
+    {
+      "node": "plutus-core",
+      "depth": 2,
+      "title": "On-Chain Execution",
+      "narrative": "[Plutus Core](node:plutus-core) is the low-level lambda calculus that runs on-chain. The [CEK machine](node:cek-machine) evaluates it, tracking [ExUnits](node:exunits) (CPU + memory) against the transaction budget. Exceeding the budget = transaction fails."
+    },
+    {
+      "node": "cost-models",
+      "depth": 2,
+      "title": "What Scripts Cost",
+      "narrative": "[Cost models](node:cost-models) assign costs to each Plutus built-in function. These are [protocol parameters](node:param-group-technical) that governance can update via [parameter change actions](node:action-param-change). ExUnits are converted to ada fees using price parameters."
+    }
+  ]
+}

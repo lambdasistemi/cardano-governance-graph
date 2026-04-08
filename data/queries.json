@@ -1,0 +1,163 @@
+[
+  {
+    "id": "governance-view",
+    "name": "Cardano Governance",
+    "description": "CIP-1694 governance model — actors, voting, actions, ratification, and constitutional framework.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nPREFIX gbg: <https://lambdasistemi.github.io/graph-browser/vocab/groups#>\nSELECT DISTINCT ?node WHERE {\n  ?node gb:group ?g .\n  VALUES ?g { gbg:core gbg:actors gbg:actions gbg:lifecycle gbg:thresholds gbg:framework gbg:parameters gbg:ecosystem }\n}",
+    "tags": [
+      "view"
+    ]
+  },
+  {
+    "id": "smart-contracts-view",
+    "name": "Smart Contracts",
+    "description": "Plutus platform, on-chain languages, EUTxO model, patterns, protocols, tooling, and standards.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nPREFIX gbg: <https://lambdasistemi.github.io/graph-browser/vocab/groups#>\nSELECT DISTINCT ?node WHERE {\n  ?node gb:group ?g .\n  VALUES ?g { gbg:smart-contracts gbg:languages gbg:tooling gbg:protocols gbg:standards }\n}",
+    "tags": [
+      "view"
+    ]
+  },
+  {
+    "id": "all-actors",
+    "name": "Governance Actors",
+    "description": "All governance participants: DReps, SPOs, CC, and ada holders.",
+    "sparql": "PREFIX gbk: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nSELECT ?node WHERE { ?node a gbk:actor }",
+    "tags": []
+  },
+  {
+    "id": "all-action-types",
+    "name": "Governance Action Types",
+    "description": "The seven types of governance action defined by CIP-1694.",
+    "sparql": "PREFIX gbk: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nSELECT ?node WHERE { ?node a gbk:action-type }",
+    "tags": []
+  },
+  {
+    "id": "all-parameters",
+    "name": "Protocol Parameters",
+    "description": "Parameter groups and individual protocol parameters.",
+    "sparql": "PREFIX gbk: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nSELECT ?node WHERE {\n  { ?node a gbk:param-group } UNION { ?node a gbk:parameter }\n}",
+    "tags": []
+  },
+  {
+    "id": "all-languages",
+    "name": "Smart Contract Languages",
+    "description": "All on-chain programming languages targeting Plutus Core.",
+    "sparql": "PREFIX gbk: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nSELECT ?node WHERE { ?node a gbk:language }",
+    "tags": []
+  },
+  {
+    "id": "all-tools",
+    "name": "Developer Tooling",
+    "description": "SDKs, explorers, and infrastructure for building on Cardano.",
+    "sparql": "PREFIX gbk: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nSELECT ?node WHERE { ?node a gbk:tool }",
+    "tags": []
+  },
+  {
+    "id": "who-votes-on",
+    "name": "Who Votes on What",
+    "description": "All voting relationships — which bodies vote on which action types.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nPREFIX gbe: <https://lambdasistemi.github.io/graph-browser/vocab/edges#>\nSELECT DISTINCT ?node WHERE {\n  { ?e a gb:EdgeAssertion ; gb:predicate gbe:votes%20on ; gb:from ?node }\n  UNION\n  { ?e a gb:EdgeAssertion ; gb:predicate gbe:votes%20on ; gb:to ?node }\n  UNION\n  { ?e a gb:EdgeAssertion ; gb:predicate gbe:evaluates%20and%20votes%20on ; gb:from ?node }\n  UNION\n  { ?e a gb:EdgeAssertion ; gb:predicate gbe:evaluates%20and%20votes%20on ; gb:to ?node }\n}",
+    "tags": []
+  },
+  {
+    "id": "threshold-network",
+    "name": "Threshold & Ratification Network",
+    "description": "Voting thresholds, ratification process, and what they connect to.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nPREFIX gbg: <https://lambdasistemi.github.io/graph-browser/vocab/groups#>\nSELECT DISTINCT ?node WHERE {\n  { ?node gb:group gbg:thresholds }\n  UNION { ?node gb:nodeId \"ratification\" }\n  UNION { ?node gb:nodeId \"voting\" }\n  UNION { ?node gb:nodeId \"enactment\" }\n}",
+    "tags": []
+  },
+  {
+    "id": "constitution-enforcement",
+    "name": "Constitutional Enforcement",
+    "description": "The constitution, guardrails script, and the CC — how constitutionality is enforced.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT DISTINCT ?node WHERE {\n  VALUES ?id { \"constitution\" \"guardrails-script\" \"cc\" \"hot-cold-keys\" \"action-new-constitution\" \"action-no-confidence\" \"action-update-committee\" }\n  ?node gb:nodeId ?id .\n}",
+    "tags": []
+  },
+  {
+    "id": "delegation-paths",
+    "name": "Delegation Paths",
+    "description": "How ada holders delegate voting power and stake — DReps, SPOs, and pre-defined options.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nPREFIX gbe: <https://lambdasistemi.github.io/graph-browser/vocab/edges#>\nSELECT DISTINCT ?node WHERE {\n  { ?e a gb:EdgeAssertion ; gb:predicate gbe:delegates%20voting%20power%20to ; gb:from ?node }\n  UNION { ?e a gb:EdgeAssertion ; gb:predicate gbe:delegates%20voting%20power%20to ; gb:to ?node }\n  UNION { ?e a gb:EdgeAssertion ; gb:predicate gbe:delegates%20stake%20to ; gb:from ?node }\n  UNION { ?e a gb:EdgeAssertion ; gb:predicate gbe:delegates%20stake%20to ; gb:to ?node }\n  UNION { ?e a gb:EdgeAssertion ; gb:predicate gbe:can%20delegate%20to ; gb:from ?node }\n  UNION { ?e a gb:EdgeAssertion ; gb:predicate gbe:can%20delegate%20to ; gb:to ?node }\n}",
+    "tags": []
+  },
+  {
+    "id": "plutus-execution",
+    "name": "Plutus Execution Model",
+    "description": "From Plutus Core through the CEK machine to execution units and cost models.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT DISTINCT ?node WHERE {\n  VALUES ?id { \"plutus\" \"plutus-core\" \"cek-machine\" \"exunits\" \"cost-models\" \"datum\" \"redeemer\" \"script-context\" }\n  ?node gb:nodeId ?id .\n}",
+    "tags": []
+  },
+  {
+    "id": "vasil-upgrades",
+    "name": "Vasil-Era Features",
+    "description": "Reference scripts, reference inputs, and inline datums — the Vasil hard fork features.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT DISTINCT ?node WHERE {\n  VALUES ?id { \"reference-scripts\" \"reference-inputs\" \"inline-datums\" \"plutus\" \"eutxo\" }\n  ?node gb:nodeId ?id .\n}",
+    "tags": []
+  },
+  {
+    "id": "cip-standards",
+    "name": "CIP Standards",
+    "description": "All Cardano Improvement Proposals referenced in the graph.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT ?node WHERE {\n  ?node gb:nodeId ?id .\n  FILTER(STRSTARTS(?id, \"cip-\"))\n}",
+    "tags": []
+  },
+  {
+    "id": "treasury-and-budgeting",
+    "name": "Treasury & Budgeting",
+    "description": "Treasury withdrawals, budgeting mechanism, and economic parameters.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT DISTINCT ?node WHERE {\n  VALUES ?id { \"treasury-budgeting\" \"action-treasury\" \"param-group-economic\" \"deposit-mechanism\" }\n  ?node gb:nodeId ?id .\n}",
+    "tags": []
+  },
+  {
+    "id": "hard-fork-governance",
+    "name": "Hard Fork Governance",
+    "description": "How hard forks are proposed, who votes, and what SPOs must do.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT DISTINCT ?node WHERE {\n  VALUES ?id { \"action-hard-fork\" \"spo\" \"drep\" \"cc\" \"ratification\" \"enactment\" \"conway-era\" \"bootstrap-phase\" }\n  ?node gb:nodeId ?id .\n}",
+    "tags": []
+  },
+  {
+    "id": "neighbors-of",
+    "name": "Neighborhood",
+    "description": "A node and everything directly connected to it.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT DISTINCT ?node WHERE {\n  { BIND(<https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> AS ?node) }\n  UNION { ?e a gb:EdgeAssertion ; gb:from <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> ; gb:to ?node }\n  UNION { ?e a gb:EdgeAssertion ; gb:to <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> ; gb:from ?node }\n}",
+    "parameters": [
+      {
+        "name": "nodeId",
+        "label": "Node",
+        "type": "node",
+        "default": "governance-model"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "id": "by-kind",
+    "name": "Filter by Kind",
+    "description": "All nodes of a given kind.",
+    "sparql": "PREFIX gbk: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nSELECT ?node WHERE { ?node a gbk:$kindId }",
+    "parameters": [
+      {
+        "name": "kindId",
+        "label": "Kind",
+        "type": "kind",
+        "default": "actor"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "id": "by-group",
+    "name": "Filter by Group",
+    "description": "All nodes belonging to a group.",
+    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nPREFIX gbg: <https://lambdasistemi.github.io/graph-browser/vocab/groups#>\nSELECT ?node WHERE { ?node gb:group gbg:$groupId }",
+    "parameters": [
+      {
+        "name": "groupId",
+        "label": "Group",
+        "type": "string",
+        "default": "core"
+      }
+    ],
+    "tags": []
+  }
+]

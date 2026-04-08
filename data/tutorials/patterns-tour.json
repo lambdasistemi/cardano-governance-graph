@@ -1,0 +1,31 @@
+{
+  "id": "patterns-tour",
+  "title": "Smart Contract Patterns",
+  "description": "Common design patterns for building on EUTxO.",
+  "stops": [
+    {
+      "node": "state-machine",
+      "depth": 2,
+      "title": "State Machines",
+      "narrative": "The [state machine pattern](node:state-machine) models contract state as a [datum](node:datum). The validator checks that input datum + redeemer produces a valid output datum. Used for multi-step protocols: escrow, auctions, DEX order matching."
+    },
+    {
+      "node": "oracle-pattern",
+      "depth": 2,
+      "title": "Oracle Pattern",
+      "narrative": "The [oracle pattern](node:oracle-pattern) uses [reference inputs](node:reference-inputs) to publish data that many contracts can read without spending. Price feeds, exchange rates, random numbers — all published as UTxO datums."
+    },
+    {
+      "node": "staking-validator",
+      "depth": 2,
+      "title": "Withdraw Zero Trick",
+      "narrative": "The [withdraw zero pattern](node:staking-validator) is a key optimization. Instead of running a spending validator per input (O(n²) cost), delegate validation to a staking validator that runs once per transaction (O(n)). Documented by Anastasia Labs."
+    },
+    {
+      "node": "minting-policy",
+      "depth": 2,
+      "title": "Minting Policies & Token Standards",
+      "narrative": "[Minting policies](node:minting-policy) control token creation. [CIP-25](node:cip-25) defines immutable NFT metadata at mint time. [CIP-68](node:cip-68) adds mutable metadata via reference tokens — the standard for modern Cardano NFTs and rich fungible tokens."
+    }
+  ]
+}

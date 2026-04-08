@@ -1,0 +1,37 @@
+{
+  "id": "languages-tour",
+  "title": "Smart Contract Languages",
+  "description": "8 languages that compile to Plutus Core — pick the one that fits your team.",
+  "stops": [
+    {
+      "node": "aiken",
+      "depth": 2,
+      "title": "Aiken: The Popular Choice",
+      "narrative": "[Aiken](node:aiken) is used by 75%+ of Cardano developers. Rust-inspired syntax, purpose-built for smart contracts. Compiles to [UPLC](node:plutus-core) with aggressive optimization. Auto-generates [CIP-57](node:cip-57) blueprints. [Minswap](node:minswap) V2 is written in Aiken."
+    },
+    {
+      "node": "plinth",
+      "depth": 2,
+      "title": "Plinth: The Haskell Original",
+      "narrative": "[Plinth](node:plinth) (formerly PlutusTx) is the original on-chain language. Write in a subset of Haskell, get the full GHC type system. Maintained by IntersectMBO. [Plutarch](node:plutarch) offers a lower-level Haskell eDSL for performance-critical validators — used by [Liqwid](node:liqwid)."
+    },
+    {
+      "node": "opshin",
+      "depth": 2,
+      "title": "OpShin: Python for Cardano",
+      "narrative": "[OpShin](node:opshin) lets you write validators in 100% valid Python syntax. Strict typing enforced at compile time. Integrates with PyCardano for off-chain code. The lowest barrier to entry for Python developers."
+    },
+    {
+      "node": "marlowe",
+      "depth": 2,
+      "title": "Marlowe: Financial Contracts",
+      "narrative": "[Marlowe](node:marlowe) is a DSL for financial contracts — non-Turing-complete by design, so contracts can be exhaustively analyzed and formally verified. Think loans, escrows, and swaps with mathematical guarantees. Now community-owned."
+    },
+    {
+      "node": "helios",
+      "depth": 2,
+      "title": "The JS/TS Options",
+      "narrative": "[Helios](node:helios) and [plu-ts](node:plu-ts) target JavaScript/TypeScript developers. Helios has its own on-chain DSL plus off-chain tx building. plu-ts constructs UPLC AST directly in TypeScript. [Scalus](node:scalus) covers Scala developers."
+    }
+  ]
+}

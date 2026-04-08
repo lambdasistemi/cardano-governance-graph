@@ -28,5 +28,35 @@
     "title": "How Smart Contract Costs Are Set",
     "description": "From Plutus benchmarks to on-chain parameters: how the price of running a smart contract gets decided.",
     "file": "data/tutorials/smart-contract-costs.json"
+  },
+  {
+    "id": "eutxo-fundamentals",
+    "title": "EUTxO Fundamentals",
+    "description": "The transaction model that makes Cardano smart contracts work.",
+    "file": "data/tutorials/eutxo-fundamentals.json"
+  },
+  {
+    "id": "languages-tour",
+    "title": "Smart Contract Languages",
+    "description": "Tour the on-chain languages targeting Plutus Core.",
+    "file": "data/tutorials/languages-tour.json"
+  },
+  {
+    "id": "vasil-features",
+    "title": "Vasil-Era Features",
+    "description": "Reference scripts, reference inputs, and inline datums.",
+    "file": "data/tutorials/vasil-features.json"
+  },
+  {
+    "id": "patterns-tour",
+    "title": "Smart Contract Patterns",
+    "description": "State machines, oracles, staking validators, and minting policies.",
+    "file": "data/tutorials/patterns-tour.json"
+  },
+  {
+    "id": "ecosystem-tour",
+    "title": "Ecosystem Protocols",
+    "description": "DEXes, lending, L2 scaling, and developer tools.",
+    "file": "data/tutorials/ecosystem-tour.json"
   }
 ]

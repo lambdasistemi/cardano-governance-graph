@@ -1,0 +1,31 @@
+{
+  "id": "ecosystem-tour",
+  "title": "Protocols & Tooling",
+  "description": "What people are building and the tools they use.",
+  "stops": [
+    {
+      "node": "minswap",
+      "depth": 2,
+      "title": "DEX: Minswap",
+      "narrative": "[Minswap](node:minswap) is the largest Cardano DEX by TVL. Multi-pool AMM written in [Aiken](node:aiken). Batchers collect user swap orders and settle them against pool UTxOs — the standard DEX architecture on EUTxO."
+    },
+    {
+      "node": "liqwid",
+      "depth": 2,
+      "title": "Lending: Liqwid Finance",
+      "narrative": "[Liqwid](node:liqwid) is the leading lending/borrowing protocol. Uses [Plutarch](node:plutarch) for performance-critical validators. DAO-governed. Demonstrates complex multi-contract DeFi on [EUTxO](node:eutxo)."
+    },
+    {
+      "node": "hydra",
+      "depth": 2,
+      "title": "Scaling: Hydra L2",
+      "narrative": "[Hydra](node:hydra) is Cardano's Layer 2 — isomorphic state channels that [replicate the full EUTxO model](node:eutxo) off-chain. Sub-second latency, 1,000 TPS per head. Same smart contract model as L1, so existing contracts work."
+    },
+    {
+      "node": "lucid-evolution",
+      "depth": 2,
+      "title": "Off-Chain: Lucid & Mesh",
+      "narrative": "[Lucid Evolution](node:lucid-evolution) and [Mesh SDK](node:mesh-sdk) are the main TypeScript libraries for building transactions that interact with [Plutus](node:plutus) validators. [Blockfrost](node:blockfrost) provides chain indexing APIs. [Demeter](node:demeter) offers cloud infrastructure."
+    }
+  ]
+}

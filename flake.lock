@@ -55,11 +55,11 @@
         "purescript-overlay": "purescript-overlay"
       },
       "locked": {
-        "lastModified": 1775239202,
-        "narHash": "sha256-23Py8iH9Ifn3rW3Kb8Y3l7nrLmWki0+lMOER1iUhsgI=",
+        "lastModified": 1775648316,
+        "narHash": "sha256-Uh80FJoa6WRSIpZeytMqg/bDlDuHj78OGEU25iYzoAo=",
         "owner": "lambdasistemi",
         "repo": "graph-browser",
-        "rev": "bf9e56add39139e3b4b09d5e1a9dda0838d2b3f2",
+        "rev": "73fba0cad9646895ecf841a4782bdb9e6773b044",
         "type": "github"
       },
       "original": {

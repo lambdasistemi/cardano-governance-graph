@@ -22,15 +22,17 @@ This repo is **data-only**. The viewer is provided by [graph-browser](https://gi
 
 ### Data files
 
-- `data/rdf/graph.ttl` — the graph (Turtle RDF, source of truth)
+- `data/rdf/graph.ttl` — graph-browser instance data and edge descriptions
+- `data/rdf/core-ontology.ttl` — graph-browser core ontology used by ontology views
+- `data/rdf/application-ontology.ttl` — repo-specific graph-browser vocabulary
 - `data/rdf/cardano.ttl` — Cardano domain ontology (W3C vocabularies)
-- `data/config.json` — viewer configuration (kinds, colors, shapes)
+- `data/config.json` — viewer configuration, including the ordered RDF sources to merge at runtime
 - `data/queries.json` — SPARQL query catalog
 - `data/tutorials/` — guided tours
 
 ## Contributing
 
-Edit `data/rdf/graph.ttl` (Turtle RDF) to add or modify nodes and edges. Edit `data/queries.json` for queries, `data/tutorials/` for tours. CI validates schemas and RDF syntax automatically.
+Edit `data/rdf/graph.ttl` for graph-browser nodes and relationships, and `data/rdf/cardano.ttl` for Cardano ontology classes and properties. Keep `data/queries.json` and `data/tutorials/` aligned with those node ids. CI validates every RDF source declared in `data/config.json`.
 
 ## Disclaimer
 

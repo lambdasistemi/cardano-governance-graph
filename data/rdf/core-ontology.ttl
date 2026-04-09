@@ -3,11 +3,12 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://lambdasistemi.github.io/graph-browser/vocab/ontology> a owl:Ontology ;
   rdfs:label "Graph Browser core vocabulary" ;
-  dcterms:description "Shared graph-browser ontology for datasets, views, tutorials, queries, and edge assertions." ;
+  dcterms:description "Shared graph-browser ontology for datasets, views, tutorials, and queries, aligned to standard RDF descriptions and links." ;
   owl:versionInfo "0.1.0" .
 
 gb:Dataset a owl:Class ;
@@ -21,14 +22,6 @@ gb:Node a owl:Class ;
 gb:Group a owl:Class ;
   rdfs:label "Group" ;
   dcterms:description "An organizational group used by graph-browser nodes." .
-
-gb:EdgeAssertion a owl:Class ;
-  rdfs:label "Edge assertion" ;
-  dcterms:description "Metadata resource preserving the original graph-browser edge record." .
-
-gb:ExternalLink a owl:Class ;
-  rdfs:label "External link" ;
-  dcterms:description "External URL associated with a graph-browser node." .
 
 gb:Tutorial a owl:Class ;
   rdfs:label "Tutorial" ;
@@ -119,24 +112,6 @@ gb:QueryParameter rdfs:subClassOf
     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     owl:onDataRange xsd:string
   ] .
-
-gb:EdgeAssertion rdfs:subClassOf
-  [ a owl:Restriction ;
-    owl:onProperty gb:from ;
-    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    owl:onClass gb:Node
-  ] ,
-  [ a owl:Restriction ;
-    owl:onProperty gb:to ;
-    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    owl:onClass gb:Node
-  ] ,
-  [ a owl:Restriction ;
-    owl:onProperty gb:predicate ;
-    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    owl:onClass rdf:Property
-  ] .
-
 gb:EdgeRelation a owl:ObjectProperty ;
   rdfs:label "edge relation" ;
   dcterms:description "A direct relationship predicate between two graph-browser nodes." ;
@@ -183,21 +158,6 @@ gb:group a owl:ObjectProperty ;
   rdfs:label "group" ;
   rdfs:domain gb:Node ;
   rdfs:range gb:Group .
-
-gb:description a owl:DatatypeProperty ;
-  rdfs:label "description" ;
-  rdfs:domain gb:Node ;
-  rdfs:range xsd:string .
-
-gb:externalLink a owl:ObjectProperty ;
-  rdfs:label "external link" ;
-  rdfs:domain gb:Node ;
-  rdfs:range gb:ExternalLink .
-
-gb:url a owl:DatatypeProperty ;
-  rdfs:label "url" ;
-  rdfs:domain gb:ExternalLink ;
-  rdfs:range xsd:anyURI .
 
 gb:hasTutorial a owl:ObjectProperty ;
   rdfs:label "has tutorial" ;
@@ -298,23 +258,7 @@ gb:tag a owl:DatatypeProperty ;
   rdfs:label "tag" ;
   rdfs:domain gb:NamedQuery ;
   rdfs:range xsd:string .
-
-gb:predicate a owl:ObjectProperty ;
-  rdfs:label "predicate" ;
-  rdfs:domain gb:EdgeAssertion ;
-  rdfs:range rdf:Property .
-
-gb:from a owl:ObjectProperty ;
-  rdfs:label "from" ;
-  rdfs:domain gb:EdgeAssertion ;
-  rdfs:range gb:Node .
-
-gb:to a owl:ObjectProperty ;
-  rdfs:label "to" ;
-  rdfs:domain gb:EdgeAssertion ;
-  rdfs:range gb:Node .
-
 gb:edgeIndex a owl:DatatypeProperty ;
   rdfs:label "edge index" ;
-  rdfs:domain gb:EdgeAssertion ;
+  rdfs:domain rdf:Statement ;
   rdfs:range xsd:integer .

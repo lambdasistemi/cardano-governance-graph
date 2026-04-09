@@ -26,12 +26,9 @@
             cp ${browser}/index.html $out/
             cp ${browser}/index.js $out/
 
-            # Copy data as writable so we can merge ontology triples
+            # Copy data alongside the bundled viewer; the runtime merges RDF
+            # inputs declared in data/config.json.
             cp -r --no-preserve=mode ${./data} $out/data
-
-            # Merge ontology triples into graph.ttl so SPARQL queries
-            # using cardano: vocabulary work at runtime
-            cat ${./data/rdf/cardano.ttl} >> $out/data/rdf/graph.ttl
 
             # Publish namespace document so ontology IRI is dereferenceable
             mkdir -p $out/vocab

@@ -119,7 +119,7 @@
     "id": "neighbors-of",
     "name": "Neighborhood",
     "description": "A node and everything directly connected to it.",
-    "sparql": "PREFIX gb: <https://lambdasistemi.github.io/graph-browser/vocab/terms#>\nSELECT DISTINCT ?node WHERE {\n  { BIND(<https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> AS ?node) }\n  UNION { ?e a gb:EdgeAssertion ; gb:from <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> ; gb:to ?node }\n  UNION { ?e a gb:EdgeAssertion ; gb:to <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> ; gb:from ?node }\n}",
+    "sparql": "SELECT DISTINCT ?node WHERE {\n  { BIND(<https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> AS ?node) }\n  UNION {\n    <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> ?predicate ?node .\n    FILTER(isIRI(?node))\n  }\n  UNION {\n    ?node ?predicate <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/$nodeId> .\n    FILTER(isIRI(?node))\n  }\n}",
     "parameters": [
       {
         "name": "nodeId",
@@ -211,7 +211,7 @@
   },
   {
     "id": "ontology-subtree",
-    "name": "Ontology Subtree",
+    "name": "Ontology Subtrees",
     "description": "A class and all descendants beneath a selected ontology root.",
     "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?node WHERE {\n  ?class rdfs:subClassOf* ?ancestor .\n  FILTER(isIRI(?class) && isIRI(?ancestor))\n  BIND(CONCAT(\"owl-\", LCASE(REPLACE(REPLACE(STR(?class), \"^.*(#|/)\", \"\"), \"[^A-Za-z0-9]+\", \"-\"))) AS ?node)\n  BIND(CONCAT(\"owl-\", LCASE(REPLACE(REPLACE(STR(?ancestor), \"^.*(#|/)\", \"\"), \"[^A-Za-z0-9]+\", \"-\"))) AS ?ancestorNode)\n  FILTER(?ancestorNode = \"$root\")\n}",
     "parameters": [{ "name": "root", "label": "Root Class", "type": "node" }],

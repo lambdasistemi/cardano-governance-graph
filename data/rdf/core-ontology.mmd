@@ -3,8 +3,6 @@ flowchart LR
   Dataset["gb:Dataset"]
   Node["gb:Node"]
   Group["gb:Group"]
-  EdgeAssertion["gb:EdgeAssertion"]
-  ExternalLink["gb:ExternalLink"]
   Tutorial["gb:Tutorial"]
   TutorialStop["gb:TutorialStop"]
   View["gb:View"]
@@ -16,8 +14,6 @@ flowchart LR
   Core --> Dataset
   Core --> Node
   Core --> Group
-  Core --> EdgeAssertion
-  Core --> ExternalLink
   Core --> Tutorial
   Core --> TutorialStop
   Core --> View
@@ -31,7 +27,6 @@ flowchart LR
   Dataset -->|has views| View
   Dataset -->|has query catalogs| QueryCatalog
   Node -->|belongs to 1| Group
-  Node -->|links to| ExternalLink
   Tutorial -->|has stops 0..*| TutorialStop
   TutorialStop -->|focuses on| Node
   View -->|has edge refs 0..*| EdgeReference
@@ -40,6 +35,3 @@ flowchart LR
   EdgeReference -->|edge target| Node
   QueryCatalog -->|has named queries 0..*| NamedQuery
   NamedQuery -->|has parameters 0..*| QueryParameter
-  EdgeAssertion -->|from 1| Node
-  EdgeAssertion -->|to 1| Node
-  EdgeAssertion -->|predicate 1| EdgeRelation

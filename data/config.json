@@ -4,9 +4,7 @@
   "sourceUrl": "https://github.com/lambdasistemi/cardano-knowledge-maps",
   "graphSources": [
     { "format": "text/turtle", "path": "data/rdf/graph.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/cardano.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/core-ontology.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/application-ontology.ttl" }
+    { "format": "text/turtle", "path": "data/rdf/cardano.ttl" }
   ],
   "kinds": {
     "actor": {

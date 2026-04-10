@@ -504,59 +504,8 @@ gbkind:protocol      owl:equivalentClass  cardano:DApp .
 gbkind:runtime       owl:equivalentClass  cardano:SmartContractRuntime .
 gbkind:standard      owl:equivalentClass  cardano:CIP .
 
-# ==============================================================================
-# Alignment — bridge gbedge: properties to cardano: properties
-# ==============================================================================
-
-gbedge:votes%20on                       owl:equivalentProperty cardano:votesOn .
-gbedge:evaluates%20and%20votes%20on     owl:equivalentProperty cardano:evaluatesAndVotesOn .
-gbedge:delegates%20voting%20power%20to  owl:equivalentProperty cardano:delegatesVotingPowerTo .
-gbedge:delegates%20stake%20to           owl:equivalentProperty cardano:delegatesStakeTo .
-gbedge:submits                          owl:equivalentProperty cardano:submits .
-gbedge:constrains                       owl:equivalentProperty cardano:constrains .
-gbedge:evaluates%20actions%20against    owl:equivalentProperty cardano:evaluatesAgainst .
-gbedge:leads%20to                       owl:equivalentProperty cardano:leadsTo .
-gbedge:requires                         owl:equivalentProperty cardano:requires .
-gbedge:subject%20to                     owl:equivalentProperty cardano:subjectTo .
-gbedge:can%20delegate%20to             owl:equivalentProperty cardano:canDelegateTo .
-gbedge:can%20register%20as             owl:equivalentProperty cardano:canRegisterAs .
-gbedge:changes%20membership%20of       owl:equivalentProperty cardano:changesMembershipOf .
-gbedge:puts%20into%20no-confidence%20state  owl:equivalentProperty cardano:putsIntoNoConfidenceState .
-gbedge:codified%20in                   owl:equivalentProperty cardano:codifiedIn .
-gbedge:modifies%20voting%20for         owl:equivalentProperty cardano:modifiesVotingFor .
-gbedge:belongs%20to                    owl:equivalentProperty cardano:belongsToGroup .
-gbedge:can%20change                    owl:equivalentProperty cardano:canChange .
-gbedge:affects                         owl:equivalentProperty cardano:affects .
-gbedge:compiles%20to                   owl:equivalentProperty cardano:compilesTo .
-gbedge:evaluated%20by                  owl:equivalentProperty cardano:evaluatedBy .
-gbedge:priced%20by                     owl:equivalentProperty cardano:pricedBy .
-gbedge:built%20on                      owl:equivalentProperty cardano:builtOn .
-gbedge:written%20in                    owl:equivalentProperty cardano:writtenIn .
-gbedge:builds%20transactions%20for     owl:equivalentProperty cardano:buildsTransactionsFor .
-gbedge:indexes                         owl:equivalentProperty cardano:indexes .
-gbedge:specifies                       owl:equivalentProperty cardano:specifies .
-gbedge:implemented%20in                owl:equivalentProperty cardano:implementedIn .
-gbedge:enables                         owl:equivalentProperty cardano:enables .
-gbedge:facilitates                     owl:equivalentProperty cardano:facilitates .
-gbedge:documents                       owl:equivalentProperty cardano:documents .
-gbedge:succeeds                        owl:equivalentProperty cardano:succeeds .
-
-gbedge:profile%20follows               owl:equivalentProperty cardano:profileFollows .
-gbedge:renders%20profiles%20from       owl:equivalentProperty cardano:rendersProfilesFrom .
-gbedge:unifies%20script%20types%20in   owl:equivalentProperty cardano:unifiesScriptTypesIn .
-gbedge:adds%20built-ins%20to           owl:equivalentProperty cardano:addsBuiltInsTo .
-gbedge:optimizes                       owl:equivalentProperty cardano:optimizes .
-gbedge:registers%20metadata%20for      owl:equivalentProperty cardano:registersMetadataFor .
-
-# Edges that map directly to standard vocabulary properties
-gbedge:is%20a%20type%20of             owl:equivalentProperty rdfs:subClassOf .
-gbedge:contains                        owl:equivalentProperty skos:member .
-gbedge:some%20params%20are            owl:equivalentProperty skos:related .
-gbedge:extends                         owl:equivalentProperty dcterms:requires .
-gbedge:uses                            owl:equivalentProperty prov:used .
-gbedge:generates                       owl:equivalentProperty prov:generated .
-gbedge:improves                        owl:equivalentProperty dcterms:relation .
-gbedge:consumes                        owl:equivalentProperty prov:used .
+# Note: owl:equivalentProperty mappings removed — graph.ttl now uses
+# cardano: and standard predicates directly (see #35).
 
 # ==============================================================================
 # Instance typing — give existing nodes their cardano: types

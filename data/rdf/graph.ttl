@@ -929,7 +929,8 @@ n:cip-88
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:standard ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0088> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0088> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0088> .
 
 n:cip-85
   gbedge:optimizes n:plutus-core ;
@@ -940,7 +941,8 @@ n:cip-85
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:standard ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0085> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0085> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0085> .
 
 n:cip-381
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#adds%20built-ins%20to> n:plutus-core ;
@@ -951,7 +953,8 @@ n:cip-381
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:standard ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0381> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0381> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0381> .
 
 n:cip-69
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#unifies%20script%20types%20in> n:plutus ;
@@ -962,7 +965,8 @@ n:cip-69
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:standard ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0069> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0069> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0069> .
 
 n:govtool
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#renders%20profiles%20from> n:cip-119 ;
@@ -977,7 +981,8 @@ n:govtool
   a gbkind:tool ;
   a gb:Node ;
   foaf:page <https://docs.gov.tools/overview/what-is-cardano-govtool> ;
-  rdfs:seeAlso <https://gov.tools> .
+  rdfs:seeAlso <https://gov.tools> ;
+  rdfs:seeAlso <https://github.com/IntersectMBO/govtool> .
 
 n:drep
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#profile%20follows> n:cip-119 ;
@@ -993,7 +998,8 @@ n:drep
   a gb:Node ;
   foaf:page <https://cardanofoundation.org/blog/strengthens-commitment-governance-drep> ;
   rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-model/> ;
-  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance-overview> .
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance-overview> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/drep-pioneer-program/> .
 
 n:cip-119
   gbedge:extends n:cip-100 ;
@@ -1004,7 +1010,9 @@ n:cip-119
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0119> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0119> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0119> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/drep-pioneer-program/> .
 
 n:mesh-sdk
   gbedge:uses n:cip-30 ;
@@ -1017,7 +1025,8 @@ n:mesh-sdk
   a gbkind:tool ;
   a gb:Node ;
   foaf:page <https://github.com/MeshJS/mesh> ;
-  rdfs:seeAlso <https://meshjs.dev/> .
+  rdfs:seeAlso <https://meshjs.dev/> ;
+  rdfs:seeAlso <https://github.com/MeshJS/mesh> .
 
 n:lucid-evolution
   gbedge:uses n:cip-30 ;
@@ -1032,7 +1041,8 @@ n:lucid-evolution
   a gb:Node ;
   foaf:page <https://anastasia-labs.com/> ;
   rdfs:seeAlso <https://github.com/Anastasia-Labs/lucid-evolution> ;
-  rdfs:seeAlso <https://anastasia-labs.github.io/lucid-evolution/> .
+  rdfs:seeAlso <https://anastasia-labs.github.io/lucid-evolution/> ;
+  rdfs:seeAlso <https://github.com/Anastasia-Labs/lucid-evolution> .
 
 n:cip-95
   gbedge:extends n:cip-30 ;
@@ -1043,7 +1053,8 @@ n:cip-95
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0095> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0095> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0095> .
 
 n:demeter
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#hosts%20infrastructure%20for> n:plutus ;
@@ -1055,7 +1066,8 @@ n:demeter
   a gbkind:tool ;
   a gb:Node ;
   foaf:page <https://docs.demeter.run/> ;
-  rdfs:seeAlso <https://demeter.run/> .
+  rdfs:seeAlso <https://demeter.run/> ;
+  rdfs:seeAlso <https://github.com/demeter-run> .
 
 n:blockfrost
   gbedge:indexes n:eutxo ;
@@ -1068,7 +1080,8 @@ n:blockfrost
   a gb:Node ;
   foaf:page <https://github.com/blockfrost> ;
   rdfs:seeAlso <https://docs.blockfrost.io/> ;
-  rdfs:seeAlso <https://blockfrost.io/> .
+  rdfs:seeAlso <https://blockfrost.io/> ;
+  rdfs:seeAlso <https://github.com/blockfrost> .
 
 n:djed
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#built%20on> n:plutus ;
@@ -1080,7 +1093,8 @@ n:djed
   a gbkind:protocol ;
   a gb:Node ;
   foaf:page <https://eprint.iacr.org/2021/1069> ;
-  rdfs:seeAlso <https://djed.xyz/> .
+  rdfs:seeAlso <https://djed.xyz/> ;
+  rdfs:seeAlso <https://docs.djed.one/> .
 
 n:hydra
   gbedge:replicates n:eutxo ;
@@ -1093,7 +1107,8 @@ n:hydra
   a gb:Node ;
   foaf:page <https://github.com/cardano-scaling/hydra> ;
   rdfs:seeAlso <https://docs.cardano.org/developer-resources/scalability-solutions/hydra> ;
-  rdfs:seeAlso <https://hydra.family/head-protocol/> .
+  rdfs:seeAlso <https://hydra.family/head-protocol/> ;
+  rdfs:seeAlso <https://github.com/cardano-scaling/hydra> .
 
 n:liqwid
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#written%20in> n:plutarch ;
@@ -1105,7 +1120,8 @@ n:liqwid
   a gbkind:protocol ;
   a gb:Node ;
   foaf:page <https://docs.liqwid.finance/> ;
-  rdfs:seeAlso <https://liqwid.finance/> .
+  rdfs:seeAlso <https://liqwid.finance/> ;
+  rdfs:seeAlso <https://docs.liqwid.finance/> .
 
 n:minswap
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#written%20in> n:aiken ;
@@ -1118,7 +1134,8 @@ n:minswap
   a gb:Node ;
   foaf:page <https://github.com/minswap> ;
   rdfs:seeAlso <https://docs.minswap.org/> ;
-  rdfs:seeAlso <https://minswap.org/> .
+  rdfs:seeAlso <https://minswap.org/> ;
+  rdfs:seeAlso <https://github.com/minswap> .
 
 n:aiken
   gbedge:generates n:cip-57 ;
@@ -1133,7 +1150,8 @@ n:aiken
   foaf:page <https://aiken-lang.org/stdlib> ;
   rdfs:seeAlso <https://aiken-lang.org/fundamentals/getting-started> ;
   rdfs:seeAlso <https://github.com/aiken-lang/aiken> ;
-  rdfs:seeAlso <https://aiken-lang.org/> .
+  rdfs:seeAlso <https://aiken-lang.org/> ;
+  rdfs:seeAlso <https://aiken-lang.org/fundamentals/getting-started> .
 
 n:cip-57
   gbedge:documents n:plutus ;
@@ -1145,7 +1163,8 @@ n:cip-57
   a gbkind:standard ;
   a gb:Node ;
   foaf:page <https://aiken-lang.org/fundamentals/getting-started> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-57> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-57> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0057> .
 
 n:cip-68
   gbedge:succeeds n:cip-25 ;
@@ -1158,7 +1177,8 @@ n:cip-68
   a gbkind:standard ;
   a gb:Node ;
   foaf:page <https://developers.cardano.org/docs/native-tokens/> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-68> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-68> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0068> .
 
 n:cip-25
   gbedge:extends n:minting-policy ;
@@ -1170,7 +1190,8 @@ n:cip-25
   a gbkind:standard ;
   a gb:Node ;
   foaf:page <https://developers.cardano.org/docs/native-tokens/minting-nfts/> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-25> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-25> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0025> .
 
 n:oracle-pattern
   gbedge:uses n:reference-inputs ;
@@ -1183,7 +1204,8 @@ n:oracle-pattern
   a gb:Node ;
   foaf:page <https://orcfax.io/> ;
   rdfs:seeAlso <https://charli3.io/> ;
-  rdfs:seeAlso <https://github.com/Anastasia-Labs/design-patterns> .
+  rdfs:seeAlso <https://github.com/Anastasia-Labs/design-patterns> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> .
 
 n:state-machine
   gbedge:uses n:datum ;
@@ -1196,7 +1218,8 @@ n:state-machine
   a gb:Node ;
   foaf:page <https://github.com/input-output-hk/plutus-pioneer-program> ;
   rdfs:seeAlso <https://scalus.org/docs/design-patterns> ;
-  rdfs:seeAlso <https://github.com/Anastasia-Labs/design-patterns> .
+  rdfs:seeAlso <https://github.com/Anastasia-Labs/design-patterns> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> .
 
 n:staking-validator
   gbedge:optimizes n:eutxo ;
@@ -1208,7 +1231,8 @@ n:staking-validator
   a gbkind:concept ;
   a gb:Node ;
   foaf:page <https://anastasia-labs.com/> ;
-  rdfs:seeAlso <https://github.com/Anastasia-Labs/design-patterns> .
+  rdfs:seeAlso <https://github.com/Anastasia-Labs/design-patterns> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#staking-validators> .
 
 n:marlowe
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#compiles%20to> n:plutus-core ;
@@ -1221,7 +1245,8 @@ n:marlowe
   a gb:Node ;
   foaf:page <https://developers.cardano.org/docs/smart-contracts/smart-contract-languages/marlowe/> ;
   rdfs:seeAlso <https://github.com/marlowe-lang> ;
-  rdfs:seeAlso <https://marlowe.iohk.io/> .
+  rdfs:seeAlso <https://marlowe.iohk.io/> ;
+  rdfs:seeAlso <https://docs.marlowe.iohk.io/> .
 
 n:plu-ts
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#compiles%20to> n:plutus-core ;
@@ -1233,7 +1258,8 @@ n:plu-ts
   a gbkind:language ;
   a gb:Node ;
   foaf:page <https://github.com/HarmonicLabs/plu-ts> ;
-  rdfs:seeAlso <https://pluts.harmoniclabs.tech/> .
+  rdfs:seeAlso <https://pluts.harmoniclabs.tech/> ;
+  rdfs:seeAlso <https://github.com/HarmonicLabs/plu-ts> .
 
 n:plutarch
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#compiles%20to> n:plutus-core ;
@@ -1245,6 +1271,7 @@ n:plutarch
   a gbkind:language ;
   a gb:Node ;
   foaf:page <https://github.com/Plutonomicon/plutonomicon> ;
+  rdfs:seeAlso <https://github.com/Plutonomicon/plutarch-plutus> ;
   rdfs:seeAlso <https://github.com/Plutonomicon/plutarch-plutus> .
 
 n:scalus
@@ -1258,7 +1285,8 @@ n:scalus
   a gb:Node ;
   foaf:page <https://scalus.org/docs/design-patterns> ;
   rdfs:seeAlso <https://github.com/scalus3/scalus> ;
-  rdfs:seeAlso <https://scalus.org/> .
+  rdfs:seeAlso <https://scalus.org/> ;
+  rdfs:seeAlso <https://github.com/nau/scalus> .
 
 n:helios
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#compiles%20to> n:plutus-core ;
@@ -1270,7 +1298,8 @@ n:helios
   a gbkind:language ;
   a gb:Node ;
   foaf:page <https://github.com/HeliosLang/compiler> ;
-  rdfs:seeAlso <https://helios-lang.io/> .
+  rdfs:seeAlso <https://helios-lang.io/> ;
+  rdfs:seeAlso <https://www.hyperion-bt.org/helios-book/> .
 
 n:opshin
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#compiles%20to> n:plutus-core ;
@@ -1283,7 +1312,8 @@ n:opshin
   a gb:Node ;
   foaf:page <https://pycardano.readthedocs.io/> ;
   rdfs:seeAlso <https://github.com/OpShin/opshin> ;
-  rdfs:seeAlso <https://opshin.dev/> .
+  rdfs:seeAlso <https://opshin.dev/> ;
+  rdfs:seeAlso <https://github.com/OpShin/opshin> .
 
 n:plinth
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#compiles%20to> n:plutus-core ;
@@ -1296,7 +1326,8 @@ n:plinth
   a gb:Node ;
   foaf:page <https://github.com/input-output-hk/plutus-pioneer-program> ;
   rdfs:seeAlso <https://github.com/IntersectMBO/plutus> ;
-  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/docs/> .
+  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/docs/> ;
+  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/> .
 
 n:action-param-change
   gbedge:affects n:exunits ;
@@ -1314,7 +1345,8 @@ n:action-param-change
   a gbkind:action-type ;
   a gb:Node ;
   foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#protocol-parameter-change> .
 
 n:guardrails-script
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#written%20in> n:plutus ;
@@ -1329,7 +1361,8 @@ n:guardrails-script
   a gbkind:artifact ;
   a gb:Node ;
   foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/submitting-governance-actions/> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-1694> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-1694> ;
+  rdfs:seeAlso <https://github.com/IntersectMBO/plutus/tree/master/cardano-constitution> .
 
 n:minting-policy
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#type%20of> n:plutus ;
@@ -1342,7 +1375,8 @@ n:minting-policy
   a gb:Node ;
   foaf:page <https://cips.cardano.org/cip/CIP-25> ;
   rdfs:seeAlso <https://aiken-lang.org/fundamentals/getting-started> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/native-tokens/minting/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/native-tokens/minting/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#minting-policies> .
 
 n:inline-datums
   gbedge:improves n:datum ;
@@ -1354,7 +1388,8 @@ n:inline-datums
   a gbkind:mechanism ;
   a gb:Node ;
   foaf:page <https://docs.cardano.org/about-cardano/evolution/upgrades/vasil/> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-0032> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-0032> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#inline-datums> .
 
 n:reference-inputs
   gbedge:extends n:eutxo ;
@@ -1367,7 +1402,8 @@ n:reference-inputs
   a gb:Node ;
   foaf:page <https://github.com/Anastasia-Labs/design-patterns> ;
   rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-0031> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-0031> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#reference-inputs> .
 
 n:reference-scripts
   gbedge:optimizes n:plutus ;
@@ -1380,7 +1416,8 @@ n:reference-scripts
   a gb:Node ;
   foaf:page <https://docs.cardano.org/about-cardano/evolution/upgrades/vasil/> ;
   rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-0033> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-0033> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#reference-scripts> .
 
 n:eutxo
   gbedge:enables n:plutus ;
@@ -1394,7 +1431,8 @@ n:eutxo
   foaf:page <https://ucarecdn.com/3da33f2f-73ac-4c9b-844b-f215dcce0628/EUTXOhandbook_for_ec.pdf> ;
   rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/> ;
   rdfs:seeAlso <https://docs.cardano.org/about-cardano/learn/eutxo-explainer/> ;
-  rdfs:seeAlso <https://iohk.io/en/research/library/papers/the-extended-utxo-model/> .
+  rdfs:seeAlso <https://iohk.io/en/research/library/papers/the-extended-utxo-model/> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/learn/eutxo-explainer/> .
 
 n:script-context
   gbedge:provides n:eutxo ;
@@ -1407,7 +1445,8 @@ n:script-context
   a gb:Node ;
   foaf:page <https://plutus.cardano.intersectmbo.org/docs/> ;
   rdfs:seeAlso <https://aiken-lang.org/fundamentals/getting-started> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#script-context> .
 
 n:redeemer
   gbedge:extends n:eutxo ;
@@ -1419,7 +1458,8 @@ n:redeemer
   a gbkind:concept ;
   a gb:Node ;
   foaf:page <https://aiken-lang.org/fundamentals/getting-started> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#redeemers> .
 
 n:datum
   gbedge:extends n:eutxo ;
@@ -1432,7 +1472,8 @@ n:datum
   a gb:Node ;
   foaf:page <https://aiken-lang.org/fundamentals/getting-started> ;
   rdfs:seeAlso <https://cips.cardano.org/cip/CIP-32> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#datums> .
 
 n:cost-models
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#belongs%20to> n:param-group-technical ;
@@ -1446,7 +1487,8 @@ n:cost-models
   a gb:Node ;
   foaf:page <https://github.com/IntersectMBO/plutus/blob/master/plutus-core/cost-model/data/models.R> ;
   rdfs:seeAlso <https://github.com/IntersectMBO/plutus/blob/master/plutus-core/cost-model/data/benching-conway.csv> ;
-  rdfs:seeAlso <https://github.com/IntersectMBO/plutus/blob/master/plutus-core/cost-model/CostModelGeneration.md> .
+  rdfs:seeAlso <https://github.com/IntersectMBO/plutus/blob/master/plutus-core/cost-model/CostModelGeneration.md> ;
+  rdfs:seeAlso <https://github.com/IntersectMBO/plutus/tree/master/plutus-core/cost-model> .
 
 n:exunits
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#priced%20by> n:cost-models ;
@@ -1459,7 +1501,8 @@ n:exunits
   a gb:Node ;
   foaf:page <https://plutus.cardano.intersectmbo.org/docs/reference/cardano/plutus-core-builtins-ref/> ;
   rdfs:seeAlso <https://docs.cardano.org/about-cardano/explore-more/fee-structure/> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/#execution-units> .
 
 n:cek-machine
   gbedge:consumes n:exunits ;
@@ -1471,7 +1514,8 @@ n:cek-machine
   a gbkind:runtime ;
   a gb:Node ;
   foaf:page <https://developers.cardano.org/docs/smart-contracts/plutus/> ;
-  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/resources/plutus-core-spec.pdf> .
+  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/resources/plutus-core-spec.pdf> ;
+  rdfs:seeAlso <https://github.com/IntersectMBO/plutus/tree/master/plutus-core/untyped-plutus-core/src/UntypedPlutusCore/Evaluation/Machine> .
 
 n:plutus-core
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#evaluated%20by> n:cek-machine ;
@@ -1484,7 +1528,8 @@ n:plutus-core
   a gb:Node ;
   foaf:page <https://plutus.cardano.intersectmbo.org/docs/reference/cardano/plutus-core-builtins-ref/> ;
   rdfs:seeAlso <https://github.com/IntersectMBO/plutus> ;
-  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/resources/plutus-core-spec.pdf> .
+  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/resources/plutus-core-spec.pdf> ;
+  rdfs:seeAlso <https://github.com/IntersectMBO/plutus> .
 
 n:plutus
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#compiles%20to> n:plutus-core ;
@@ -1498,7 +1543,8 @@ n:plutus
   foaf:page <https://plutus.cardano.intersectmbo.org/resources/plutus-core-spec.pdf> ;
   rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/> ;
   rdfs:seeAlso <https://github.com/input-output-hk/plutus-pioneer-program> ;
-  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/docs/> .
+  rdfs:seeAlso <https://plutus.cardano.intersectmbo.org/docs/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/smart-contracts/plutus/> .
 
 n:param-exceptions
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#modifies%20voting%20for> n:action-param-change ;
@@ -1511,7 +1557,8 @@ n:param-exceptions
   a gbkind:mechanism ;
   a gb:Node ;
   foaf:page <https://github.com/cardano-foundation/cardano-org/tree/main/src/data> ;
-  rdfs:seeAlso <https://cardano.org/insights/governance-actions/?category=Critical+Parameter+Changes> .
+  rdfs:seeAlso <https://cardano.org/insights/governance-actions/?category=Critical+Parameter+Changes> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance/cardano-constitution/> .
 
 n:action-info
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#used%20for> n:treasury-budgeting ;
@@ -1523,7 +1570,8 @@ n:action-info
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:action-type ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#info> .
 
 n:treasury-budgeting
   gbedge:gates n:action-treasury ;
@@ -1535,7 +1583,8 @@ n:treasury-budgeting
   a gbkind:process ;
   a gb:Node ;
   foaf:page <https://github.com/cardano-foundation/cardano-org/tree/main/src/data> ;
-  rdfs:seeAlso <https://cardano.org/insights/governance-actions/> .
+  rdfs:seeAlso <https://cardano.org/insights/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#treasury-withdrawal> .
 
 n:sanchonet
   gbedge:tested n:conway-era ;
@@ -1546,7 +1595,9 @@ n:sanchonet
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:tool ;
   a gb:Node ;
-  foaf:page <https://sancho.network> .
+  foaf:page <https://sancho.network> ;
+  rdfs:seeAlso <https://sancho.network/> ;
+  rdfs:seeAlso <https://docs.sanchogov.tools/> .
 
 n:cardano-foundation
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#evaluates%20and%20votes%20on> n:governance-action ;
@@ -1560,7 +1611,8 @@ n:cardano-foundation
   a gb:Node ;
   foaf:page <https://cardanofoundation.org/blog/strengthens-commitment-governance-drep> ;
   rdfs:seeAlso <https://proposalexaminer.cardanofoundation.org/> ;
-  rdfs:seeAlso <https://cardanofoundation.org/governance> .
+  rdfs:seeAlso <https://cardanofoundation.org/governance> ;
+  rdfs:seeAlso <https://cardanofoundation.org/> .
 
 n:intersect
   gbedge:facilitates n:governance-model ;
@@ -1571,7 +1623,9 @@ n:intersect
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:actor ;
   a gb:Node ;
-  foaf:page <https://www.intersectmbo.org> .
+  foaf:page <https://www.intersectmbo.org> ;
+  rdfs:seeAlso <https://www.intersectmbo.org/> ;
+  rdfs:seeAlso <https://github.com/IntersectMBO> .
 
 n:cip-105
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#derives%20keys%20for> n:drep ;
@@ -1582,7 +1636,8 @@ n:cip-105
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0105> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0105> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0105> .
 
 n:cip-129
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#standardizes%20IDs%20for> n:governance-action ;
@@ -1594,7 +1649,8 @@ n:cip-129
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0129> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0129> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0129> .
 
 n:cc
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#publishes%20rationales%20via> n:cip-136 ;
@@ -1614,7 +1670,8 @@ n:cc
   a gbkind:actor ;
   a gb:Node ;
   foaf:page <https://gov.tools> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/constitutional-committee-guide/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/constitutional-committee-guide/> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance/constitutional-committee/> .
 
 n:cip-108
   gbedge:extends n:cip-100 ;
@@ -1625,7 +1682,8 @@ n:cip-108
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0108> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0108> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0108> .
 
 n:governance-action
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#structured%20as> n:cip-108 ;
@@ -1643,6 +1701,7 @@ n:governance-action
   a gb:Node ;
   foaf:page <https://cardano.org/insights/governance-actions/> ;
   rdfs:seeAlso <https://cardanofoundation.org/blog/understanding-cardano-governance-actions> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
   rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
 
 n:spo
@@ -1659,7 +1718,9 @@ n:spo
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:actor ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-model/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-model/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/operate-a-stake-pool/> ;
+  rdfs:seeAlso <https://cardano.org/stake-pool-operation/> .
 
 n:conway-era
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#started%20with> n:bootstrap-phase ;
@@ -1670,7 +1731,9 @@ n:conway-era
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:concept ;
   a gb:Node ;
-  foaf:page <https://docs.cardano.org/about-cardano/evolution/upgrades/chang> .
+  foaf:page <https://docs.cardano.org/about-cardano/evolution/upgrades/chang> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/evolution/upgrades/chang/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/> .
 
 n:cip-1694
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#implemented%20in> n:conway-era ;
@@ -1682,7 +1745,9 @@ n:cip-1694
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-1694> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/> .
 
 n:governance-model
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#governance%20body> n:cc ;
@@ -1698,7 +1763,8 @@ n:governance-model
   a gb:Node ;
   foaf:page <https://cardanofoundation.org/governance> ;
   rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance-overview> ;
-  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-1694> .
+  rdfs:seeAlso <https://cips.cardano.org/cip/CIP-1694> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance/> .
 
 n:action-update-committee
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#changes%20membership%20of> n:cc ;
@@ -1710,7 +1776,8 @@ n:action-update-committee
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:action-type ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#update-committee> .
 
 n:action-no-confidence
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#puts%20into%20no-confidence%20state> n:cc ;
@@ -1722,7 +1789,8 @@ n:action-no-confidence
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:action-type ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#no-confidence> .
 
 n:action-new-constitution
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#can%20update> n:guardrails-script ;
@@ -1735,7 +1803,8 @@ n:action-new-constitution
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:action-type ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#new-constitution> .
 
 n:constitution
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#codified%20in> n:guardrails-script ;
@@ -1747,7 +1816,8 @@ n:constitution
   a gbkind:artifact ;
   a gb:Node ;
   foaf:page <https://cardanofoundation.org/blog/proposal-for-cardano-constitution> ;
-  rdfs:seeAlso <https://gov.tools> .
+  rdfs:seeAlso <https://gov.tools> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance/cardano-constitution/> .
 
 n:param-group-governance
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#some%20params%20are> n:security-params ;
@@ -1758,7 +1828,8 @@ n:param-group-governance
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:param-group ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#governance-group> .
 
 n:param-group-economic
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#some%20params%20are> n:security-params ;
@@ -1769,7 +1840,8 @@ n:param-group-economic
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:param-group ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#economic-group> .
 
 n:param-group-network
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#some%20params%20are> n:security-params ;
@@ -1780,7 +1852,8 @@ n:param-group-network
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:param-group ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#network-group> .
 
 n:param-group-technical
   gbedge:contains n:cost-models ;
@@ -1792,7 +1865,8 @@ n:param-group-technical
   a gbkind:param-group ;
   a gb:Node ;
   foaf:page <https://github.com/IntersectMBO/plutus/blob/master/plutus-core/cost-model/CostModelGeneration.md> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#technical-group> .
 
 n:action-treasury
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#is%20a%20type%20of> n:governance-action ;
@@ -1803,7 +1877,8 @@ n:action-treasury
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:action-type ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#treasury-withdrawal> .
 
 n:action-hard-fork
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#is%20a%20type%20of> n:governance-action ;
@@ -1815,7 +1890,8 @@ n:action-hard-fork
   a gbkind:action-type ;
   a gb:Node ;
   foaf:page <https://docs.cardano.org/about-cardano/evolution/upgrades/chang> ;
-  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> .
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#hard-fork-initiation> .
 
 n:voting
   gbedge:determines n:ratification ;
@@ -1827,7 +1903,8 @@ n:voting
   a gbkind:process ;
   a gb:Node ;
   foaf:page <https://gov.tools> ;
-  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance-overview> .
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance-overview> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/how-to-vote/> .
 
 n:ratification
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#leads%20to> n:enactment ;
@@ -1838,7 +1915,8 @@ n:ratification
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:process ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694#ratification> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694#ratification> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#ratification> .
 
 n:ada-holder
   <https://lambdasistemi.github.io/graph-browser/vocab/edges#can%20register%20as> n:drep ;
@@ -1855,7 +1933,8 @@ n:ada-holder
   a gbkind:actor ;
   a gb:Node ;
   foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-model/> ;
-  rdfs:seeAlso <https://gov.tools> .
+  rdfs:seeAlso <https://gov.tools> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance/governance-model/> .
 
 n:spo-thresholds
   dcterms:description "SPO thresholds are expressed as a fraction of active pool stake. SPOs only vote on specific action types. Current mainnet values: No-Confidence (Q1) = 51%, Committee Update normal (Q2a) = 51%, Committee Update no-confidence (Q2b) = 51%, Hard Fork (Q4) = 51%, Security-relevant params (Q5) = 51%, Info = 100% (fixed). SPOs do NOT vote on: New Constitution, non-security parameter changes, or Treasury Withdrawals." ;
@@ -1865,7 +1944,8 @@ n:spo-thresholds
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694#ratification> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694#ratification> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#voting-thresholds> .
 
 n:security-params
   dcterms:description "A subset of protocol parameters that additionally require SPO approval (at Q5 = 51% threshold) when changed. These parameters directly affect network security and node operator costs. The list: maxBlockBodySize, maxTxSize, maxBlockHeaderSize, maxValueSize, maxBlockExecutionUnits, txFeePerByte, txFeeFixed, utxoCostPerByte, govActionDeposit, minFeeRefScriptCostPerByte. This gives SPOs a veto over changes that could destabilize the network or make block production uneconomical." ;
@@ -1875,7 +1955,8 @@ n:security-params
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#security-parameters> .
 
 n:no-confidence-option
   dcterms:description "A pre-defined voting option for ada holders. When delegating to No Confidence, the holder's stake automatically votes 'Yes' on every Motion of No-Confidence and 'No' on every other governance action. Unlike Abstain, this stake IS counted in the active voting stake — it actively opposes all governance actions except no-confidence motions. This is a signal of dissatisfaction with the current governance state." ;
@@ -1885,7 +1966,8 @@ n:no-confidence-option
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694#pre-defined-voting-options> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694#pre-defined-voting-options> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/drep-pioneer-program/> .
 
 n:liquid-democracy
   dcterms:description "The democratic model used by Cardano governance. Ada holders can vote directly on every governance matter (by registering as their own DRep) OR delegate their voting power to any registered DRep. Delegation can be changed at any time and takes effect immediately. This combines the benefits of direct democracy (anyone can participate) with representative democracy (expertise can be delegated to). DRep delegation is SEPARATE from stake pool delegation — you choose who produces blocks and who votes on your behalf independently." ;
@@ -1895,7 +1977,8 @@ n:liquid-democracy
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:concept ;
   a gb:Node ;
-  foaf:page <https://docs.cardano.org/about-cardano/governance-overview> .
+  foaf:page <https://docs.cardano.org/about-cardano/governance-overview> ;
+  rdfs:seeAlso <https://en.wikipedia.org/wiki/Liquid_democracy> .
 
 n:hot-cold-keys
   dcterms:description "The credential system used by Constitutional Committee members. Similar to genesis delegation certificates. The cold key is the CC member's identity — kept offline for security. The hot key is authorized by the cold key for day-to-day voting. If a hot key is compromised, it can be rotated without changing the CC member's identity. This separation protects against key compromise while allowing active participation. CC members can also use native or Plutus script credentials instead of key pairs." ;
@@ -1905,7 +1988,8 @@ n:hot-cold-keys
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/constitutional-committee-guide/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/constitutional-committee-guide/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/operate-a-stake-pool/generating-wallet-keys/> .
 
 n:enactment
   dcterms:description "Ratified governance actions are enacted on the epoch boundary FOLLOWING ratification. When multiple actions are ratified in the same epoch, they are enacted in a fixed priority order: (1) No-Confidence, (2) Committee Update, (3) New Constitution, (4) Hard Fork, (5) Parameter Changes, (6) Treasury Withdrawals, (7) Info. Within the same type, actions are enacted in the order they were accepted to the chain. After enactment, the governance action deposit is returned to the specified reward address." ;
@@ -1915,7 +1999,8 @@ n:enactment
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:process ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694#enactment> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694#enactment> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#enactment> .
 
 n:drep-thresholds
   dcterms:description "DRep thresholds are expressed as a fraction of active DRep voting stake. Active voting stake = all stake delegated to registered, active DReps (excluding Abstain delegations). Current mainnet values: No-Confidence (P1) = 67%, Committee Update normal (P2a) = 67%, Committee Update no-confidence (P2b) = 60%, New Constitution (P3) = 75%, Hard Fork (P4) = 60%, Network params (P5a) = 67%, Economic params (P5b) = 67%, Technical params (P5c) = 67%, Governance params (P5d) = 75%, Treasury Withdrawal (P6) = 67%, Info = 100% (fixed)." ;
@@ -1925,7 +2010,8 @@ n:drep-thresholds
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694#ratification> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694#ratification> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#voting-thresholds> .
 
 n:deposit-mechanism
   dcterms:description "Several governance actions require refundable deposits to prevent spam. govActionDeposit (currently 100,000 ada) is required to submit any governance action — returned when the action is ratified or expires. dRepDeposit (currently 500 ada) is required to register as a DRep — returned on retirement. These deposits are protocol parameters in the Governance group, changeable via governance actions with a 75% DRep threshold." ;
@@ -1935,7 +2021,8 @@ n:deposit-mechanism
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-model/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/governance-model/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#deposits> .
 
 n:cip-30
   dcterms:description "Cardano dApp-Wallet Web Bridge — the original standard for connecting browser-based dApps to Cardano wallets. Defines a JavaScript API injected into window.cardano that lets dApps discover wallets, request access, query balances, submit transactions, and sign data. Nearly every Cardano dApp uses CIP-30 for wallet interaction. CIP-95 extends it with governance capabilities." ;
@@ -1945,7 +2032,9 @@ n:cip-30
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:standard ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0030> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0030> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0030> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/wallet-connectors/> .
 
 n:cip-136
   dcterms:description "CIP-136 defines the metadata standard for Constitutional Committee vote rationales. When CC members vote on governance actions, they are expected to explain their constitutional reasoning. CIP-136 provides a structured format for these rationales, including which constitutional articles were considered and why the action was deemed constitutional or not. This creates a public record of constitutional interpretation — effectively building governance case law over time." ;
@@ -1955,7 +2044,8 @@ n:cip-136
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0136> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0136> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0136> .
 
 n:cip-100
   dcterms:description "CIP-100 defines the general governance metadata standard. Every governance action includes a metadata anchor — a URL pointing to a JSON document plus its hash for integrity. CIP-100 specifies the base format for this metadata, ensuring all governance tools can parse and display proposal information consistently. The metadata is stored off-chain (to avoid blockchain bloat) but its hash is recorded on-chain, making it tamper-proof." ;
@@ -1965,7 +2055,8 @@ n:cip-100
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:artifact ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-0100> .
+  foaf:page <https://cips.cardano.org/cip/CIP-0100> ;
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/tree/master/CIP-0100> .
 
 n:cc-threshold
   dcterms:description "The CC uses one-member-one-vote (not stake-weighted). The required fraction of CC members who must approve is a configurable threshold (currently 2/3 on mainnet). The CC votes on: New Constitution, Hard Fork, all Protocol Parameter Changes, Treasury Withdrawals, and Info actions. The CC does NOT vote on: No-Confidence motions or Committee Updates (since those are about the CC itself). Expired members cannot vote. The committee has a minimum size (committeeMinSize = 7 on mainnet)." ;
@@ -1975,7 +2066,8 @@ n:cc-threshold
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/constitutional-committee-guide/> .
+  foaf:page <https://developers.cardano.org/docs/governance/cardano-governance/constitutional-committee-guide/> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#voting-thresholds> .
 
 n:bootstrap-phase
   dcterms:description "The initial governance phase after Chang #1 (August 2024) and before the Plomin hard fork (December 2024). During bootstrap: CC vote alone was sufficient for protocol parameter changes; CC + SPO vote was sufficient for hard fork initiation; Info actions were available; no other governance actions were possible; DRep participation was not required. The bootstrap phase ended when CC and SPOs ratified the Plomin hard fork, transitioning to full governance." ;
@@ -1985,7 +2077,8 @@ n:bootstrap-phase
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:process ;
   a gb:Node ;
-  foaf:page <https://docs.cardano.org/about-cardano/evolution/upgrades/chang> .
+  foaf:page <https://docs.cardano.org/about-cardano/evolution/upgrades/chang> ;
+  rdfs:seeAlso <https://docs.cardano.org/about-cardano/governance/bootstrap-phase/> .
 
 n:action-chaining
   dcterms:description "A collision-prevention mechanism. Each governance action (except Treasury Withdrawals and Info) must include the governance action ID of the most recently enacted action of its same type. This forms a chain that prevents two competing same-type actions from both being ratified when they assume incompatible starting states. For example, two parameter change proposals that both assume the current parameter values cannot both be valid after one of them changes those values." ;
@@ -1995,7 +2088,8 @@ n:action-chaining
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694#governance-actions> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694#governance-actions> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/#action-chaining> .
 
 n:abstain-option
   dcterms:description "A pre-defined voting option for ada holders. When delegating to Abstain, the holder's stake is marked as not participating — it is NOT counted in the active voting stake denominator. This means it neither helps nor hinders ratification of any action. The holder still counts as registered for staking reward incentives." ;
@@ -2005,7 +2099,8 @@ n:abstain-option
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   a gbkind:mechanism ;
   a gb:Node ;
-  foaf:page <https://cips.cardano.org/cip/CIP-1694#pre-defined-voting-options> .
+  foaf:page <https://cips.cardano.org/cip/CIP-1694#pre-defined-voting-options> ;
+  rdfs:seeAlso <https://developers.cardano.org/docs/governance/cardano-governance/drep-pioneer-program/> .
 
 # -- Metadata -------------------------------------------------------------
 

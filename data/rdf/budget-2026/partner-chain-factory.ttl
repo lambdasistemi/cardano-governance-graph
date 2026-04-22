@@ -1,0 +1,190 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix gbedge:  <https://lambdasistemi.github.io/graph-browser/vocab/edges#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — Proposal: Partner Chain Factory (Ouroboros Tachýs)
+#  Proposer: Ensurable Systems Ltd  |  Request: 13,150,479 ADA
+#  https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e8c0e2ae91c89d305701f5
+# =========================================================================
+
+# -- Edges ----------------------------------------------------------------
+
+n:bp-partner-chain-factory cardano:submittedBy n:org-ensurable-systems .
+[] a rdf:Statement ;
+  rdf:subject n:bp-partner-chain-factory ;
+  rdf:predicate cardano:submittedBy ;
+  rdf:object n:org-ensurable-systems ;
+  dcterms:description "Ensurable Systems Ltd submitted the Partner Chain Factory proposal to Cardano Budget 2026 on 2026-04-22." .
+
+n:bp-partner-chain-factory cardano:fundingFrom n:treasury-budgeting .
+[] a rdf:Statement ;
+  rdf:subject n:bp-partner-chain-factory ;
+  rdf:predicate cardano:fundingFrom ;
+  rdf:object n:treasury-budgeting ;
+  dcterms:description "The proposal requests 13,150,479 ADA (~USD 3.29M at 0.25) from the Cardano Treasury via the Budget 2026 process." .
+
+n:bp-partner-chain-factory cardano:deliversArtifact n:partner-chain-factory-toolkit .
+[] a rdf:Statement ;
+  rdf:subject n:bp-partner-chain-factory ;
+  rdf:predicate cardano:deliversArtifact ;
+  rdf:object n:partner-chain-factory-toolkit ;
+  dcterms:description "Deliverable is an open-source, Intersect-governed toolkit that lets builders deploy new Cardano-derived partner chains in hours rather than months." .
+
+n:partner-chain-factory-toolkit cardano:builtOn n:ouroboros-tachys .
+[] a rdf:Statement ;
+  rdf:subject n:partner-chain-factory-toolkit ;
+  rdf:predicate cardano:builtOn ;
+  rdf:object n:ouroboros-tachys ;
+  dcterms:description "The toolkit produces chains running Ouroboros Tachýs — a high-performance variant delivering 1–2 second block confirmation and ~40× mainnet throughput." .
+
+n:ouroboros-tachys cardano:variantOf n:ouroboros-praos .
+[] a rdf:Statement ;
+  rdf:subject n:ouroboros-tachys ;
+  rdf:predicate cardano:variantOf ;
+  rdf:object n:ouroboros-praos ;
+  dcterms:description "Ouroboros Tachýs is a performance-oriented variant of Ouroboros Praos, retaining Praos-equivalent security properties while increasing throughput and reducing confirmation latency." .
+
+n:vector-chain cardano:builtOn n:ouroboros-tachys .
+[] a rdf:Statement ;
+  rdf:subject n:vector-chain ;
+  rdf:predicate cardano:builtOn ;
+  rdf:object n:ouroboros-tachys ;
+  dcterms:description "Vector, launched late 2025 as the first Cardano-derived partner chain in production, is the reference validation of the Ouroboros Tachýs design the factory industrialises." .
+
+n:partner-chain-factory-toolkit cardano:produces n:partner-chain .
+[] a rdf:Statement ;
+  rdf:subject n:partner-chain-factory-toolkit ;
+  rdf:predicate cardano:produces ;
+  rdf:object n:partner-chain ;
+  dcterms:description "The factory emits partner-chain instances: application-specific chains that settle to Cardano mainnet and connect via production-grade bridging infrastructure." .
+
+n:partner-chain cardano:settlesOn n:cardano-mainnet .
+[] a rdf:Statement ;
+  rdf:subject n:partner-chain ;
+  rdf:predicate cardano:settlesOn ;
+  rdf:object n:cardano-mainnet ;
+  dcterms:description "Partner chains use Cardano mainnet as their settlement layer; their security is ultimately anchored to Cardano's consensus." .
+
+n:partner-chain cardano:requiresStakeIn n:ada .
+[] a rdf:Statement ;
+  rdf:subject n:partner-chain ;
+  rdf:predicate cardano:requiresStakeIn ;
+  rdf:object n:ada ;
+  dcterms:description "Partner chains built by the factory require ADA for stake, generating structural ADA demand independent of L1 transaction volume." .
+
+n:partner-chain cardano:connectsVia n:cardano-bridge .
+[] a rdf:Statement ;
+  rdf:subject n:partner-chain ;
+  rdf:predicate cardano:connectsVia ;
+  rdf:object n:cardano-bridge ;
+  dcterms:description "Partner chains produced by the factory ship with production-grade bridging infrastructure to move assets and messages between the partner chain and Cardano mainnet." .
+
+n:cardano-bridge gbedge:generates n:treasury-budgeting .
+[] a rdf:Statement ;
+  rdf:subject n:cardano-bridge ;
+  rdf:predicate gbedge:generates ;
+  rdf:object n:treasury-budgeting ;
+  dcterms:description "Bridging activity between partner chains and mainnet generates fees, contributing to treasury sustainability — part of the proposal's treasury-return argument." .
+
+# -- Nodes ----------------------------------------------------------------
+
+n:bp-partner-chain-factory
+  dcterms:description "Cardano Budget 2026 proposal requesting 13,150,479 ADA (USD ~3.29M @ 0.25) to build a reusable, open-source Partner Chain Factory. The factory bundles the Ouroboros Tachýs consensus variant, chain-bootstrapping tooling, and production-grade bridging so new partner chains can be deployed in hours rather than months, and started directly in the current Cardano era. The deliverable is to be open-source and maintained inside the Intersect-governed Cardano codebase. Submitted on 22/04/2026. Read Proposal: https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e8c0e2ae91c89d305701f5" ;
+  gb:group gbgroup:proposals ;
+  rdfs:label "Budget 2026 Proposal — Partner Chain Factory" ;
+  gb:nodeId "bp-partner-chain-factory" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:proposal ;
+  a gb:Node ;
+  foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e8c0e2ae91c89d305701f5> .
+
+n:org-ensurable-systems
+  dcterms:description "Ensurable Systems Ltd — proposer of the Partner Chain Factory proposal (Budget 2026). The team states it built the Cardano node, implemented Ouroboros, and delivered every hard fork from Byron through Plomin." ;
+  gb:group gbgroup:organizations ;
+  rdfs:label "Ensurable Systems Ltd" ;
+  gb:nodeId "org-ensurable-systems" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:actor ;
+  a gb:Node .
+
+n:partner-chain-factory-toolkit
+  dcterms:description "Open-source toolkit delivered by the proposal: chain-bootstrapping templates, the Ouroboros Tachýs consensus implementation, and bridging infrastructure. Maintained within the Intersect-governed Cardano codebase; available to any builder without licence fee." ;
+  gb:group gbgroup:tools ;
+  rdfs:label "Partner Chain Factory Toolkit" ;
+  gb:nodeId "partner-chain-factory-toolkit" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:tool ;
+  a gb:Node .
+
+n:ouroboros-tachys
+  dcterms:description "A high-performance Ouroboros consensus variant targeting 1–2 second confirmation latency and ~40× Cardano mainnet throughput, while retaining Ouroboros security properties. Intended as the consensus engine for Cardano-derived partner chains produced by the factory." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Ouroboros Tachýs" ;
+  gb:nodeId "ouroboros-tachys" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:protocol ;
+  a gb:Node .
+
+n:ouroboros-praos
+  dcterms:description "The production Cardano consensus protocol. Proof-of-stake protocol in the Ouroboros family with provable security under semi-synchronous network assumptions. Used by Cardano mainnet; the baseline against which Ouroboros Tachýs is described as a performance-oriented variant." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Ouroboros Praos" ;
+  gb:nodeId "ouroboros-praos" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:protocol ;
+  a gb:Node ;
+  foaf:page <https://iohk.io/en/research/library/papers/ouroboros-praos-an-adaptively-secure-semi-synchronous-proof-of-stake-protocol/> .
+
+n:partner-chain
+  dcterms:description "A Cardano-derived application chain that settles to Cardano mainnet, requires ADA stake, and connects to mainnet through bridging infrastructure. Distinct from Layer 2 constructions (e.g. Hydra heads): partner chains are sovereign chains that inherit Cardano tooling and security anchoring rather than running inside a Cardano state channel." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Partner Chain" ;
+  gb:nodeId "partner-chain" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:vector-chain
+  dcterms:description "Vector — launched in late 2025 as the first Cardano-derived partner chain in production. Cited in the Partner Chain Factory proposal as the existence proof for the Ouroboros Tachýs design the factory industrialises." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Vector Chain" ;
+  gb:nodeId "vector-chain" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:protocol ;
+  a gb:Node .
+
+n:cardano-bridge
+  dcterms:description "Production-grade bridging infrastructure between Cardano mainnet and partner chains produced by the factory: asset transfers, message passing, and the fee flow that supports the treasury-return argument of the proposal." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Cardano Bridge" ;
+  gb:nodeId "cardano-bridge" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:cardano-mainnet
+  dcterms:description "The Cardano layer-1 settlement chain running Ouroboros Praos. Referenced as the settlement layer for partner chains produced by the factory." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Cardano Mainnet" ;
+  gb:nodeId "cardano-mainnet" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:protocol ;
+  a gb:Node ;
+  foaf:page <https://cardano.org/> .
+
+n:ada
+  dcterms:description "The native asset of Cardano. Used for transaction fees, staking (Ouroboros Praos), deposits, and treasury denomination. Partner chains built by the factory require ADA for stake, which is the core structural-demand argument of the proposal." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "ADA" ;
+  gb:nodeId "ada" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .

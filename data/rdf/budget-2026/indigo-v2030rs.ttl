@@ -1,0 +1,172 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix gbedge:  <https://lambdasistemi.github.io/graph-browser/vocab/edges#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — Proposal: Indigo — V2030RS, Tokenized RWA, BTC-Fi & Privacy
+#  Proposer: Indigo Foundation  |  Request: 3,965,500 ADA
+#  https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e63a4ed6a29288536b11fc
+# =========================================================================
+
+# -- Edges ----------------------------------------------------------------
+
+n:bp-indigo-v2030rs cardano:submittedBy n:org-indigo-foundation .
+[] a rdf:Statement ;
+  rdf:subject n:bp-indigo-v2030rs ;
+  rdf:predicate cardano:submittedBy ;
+  rdf:object n:org-indigo-foundation ;
+  dcterms:description "Indigo Foundation submitted the V2030RS / iUSDt / BTC-Fi / privacy proposal to Cardano Budget 2026 on 2026-04-20." .
+
+n:bp-indigo-v2030rs cardano:fundingFrom n:treasury-budgeting .
+[] a rdf:Statement ;
+  rdf:subject n:bp-indigo-v2030rs ;
+  rdf:predicate cardano:fundingFrom ;
+  rdf:object n:treasury-budgeting ;
+  dcterms:description "The proposal requests 3,965,500 ADA (~USD 1.19M at 0.30) from the Cardano Treasury via the Budget 2026 process." .
+
+n:bp-indigo-v2030rs cardano:deliversArtifact n:iusdt .
+[] a rdf:Statement ;
+  rdf:subject n:bp-indigo-v2030rs ;
+  rdf:predicate cardano:deliversArtifact ;
+  rdf:object n:iusdt ;
+  dcterms:description "Central deliverable: iUSDt — an institutional-grade, tokenized real-world-asset stablecoin bridging Cardano with institutional liquidity funds." .
+
+n:bp-indigo-v2030rs cardano:deliversArtifact n:v2030rs-revenue-share .
+[] a rdf:Statement ;
+  rdf:subject n:bp-indigo-v2030rs ;
+  rdf:predicate cardano:deliversArtifact ;
+  rdf:object n:v2030rs-revenue-share ;
+  dcterms:description "V2030RS — a treasury revenue-sharing mechanism that returns a portion of Indigo protocol revenues to the Cardano Treasury." .
+
+n:bp-indigo-v2030rs cardano:deliversArtifact n:shielded-iasset .
+[] a rdf:Statement ;
+  rdf:subject n:bp-indigo-v2030rs ;
+  rdf:predicate cardano:deliversArtifact ;
+  rdf:object n:shielded-iasset ;
+  dcterms:description "Privacy deliverable: shielded iAssets — confidential synthetic assets issued on partner-chain ecosystems." .
+
+n:bp-indigo-v2030rs cardano:deliversArtifact n:btc-fi-market .
+[] a rdf:Statement ;
+  rdf:subject n:bp-indigo-v2030rs ;
+  rdf:predicate cardano:deliversArtifact ;
+  rdf:object n:btc-fi-market ;
+  dcterms:description "Bitcoin DeFi market: an Indigo-hosted venue for Bitcoin-denominated positions, bringing BTC liquidity into the Cardano DeFi stack." .
+
+n:iusdt cardano:backedBy n:rwa .
+[] a rdf:Statement ;
+  rdf:subject n:iusdt ;
+  rdf:predicate cardano:backedBy ;
+  rdf:object n:rwa ;
+  dcterms:description "iUSDt is collateralised by tokenized real-world assets held through institutional liquidity funds, rather than by on-chain crypto collateral alone." .
+
+n:iusdt cardano:comparableTo n:djed .
+[] a rdf:Statement ;
+  rdf:subject n:iusdt ;
+  rdf:predicate cardano:comparableTo ;
+  rdf:object n:djed ;
+  dcterms:description "iUSDt is positioned in the same product category as Djed (Cardano-native stablecoin) but uses RWA-backed institutional collateral rather than an overcollateralized algorithmic peg." .
+
+n:v2030rs-revenue-share gbedge:returnsTo n:treasury-budgeting .
+[] a rdf:Statement ;
+  rdf:subject n:v2030rs-revenue-share ;
+  rdf:predicate gbedge:returnsTo ;
+  rdf:object n:treasury-budgeting ;
+  dcterms:description "V2030RS directs a share of Indigo protocol revenue back to the Cardano Treasury — reframing the proposal's ADA ask as a revenue-sharing partnership rather than a one-way grant." .
+
+n:shielded-iasset cardano:deployedOn n:partner-chain .
+[] a rdf:Statement ;
+  rdf:subject n:shielded-iasset ;
+  rdf:predicate cardano:deployedOn ;
+  rdf:object n:partner-chain ;
+  dcterms:description "Shielded iAssets are deployed on partner-chain ecosystems — a cross-proposal dependency on the Partner Chain Factory track (bp-partner-chain-factory)." .
+
+n:btc-fi-market cardano:denominatedIn n:btc .
+[] a rdf:Statement ;
+  rdf:subject n:btc-fi-market ;
+  rdf:predicate cardano:denominatedIn ;
+  rdf:object n:btc ;
+  dcterms:description "The BTC-Fi market component uses Bitcoin as the denominating asset, bringing external BTC liquidity into Indigo on Cardano." .
+
+# -- Nodes ----------------------------------------------------------------
+
+n:bp-indigo-v2030rs
+  dcterms:description "Cardano Budget 2026 proposal requesting 3,965,500 ADA (USD ~1.19M @ 0.30). Four-track scope: (1) iUSDt — institutional-grade tokenized RWA stablecoin linking Cardano with institutional liquidity funds; (2) Bitcoin DeFi markets on Indigo; (3) shielded iAssets on partner-chain ecosystems; (4) V2030RS — a landmark revenue-sharing model with the Cardano Treasury. Submitted on 20/04/2026. Read Proposal: https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e63a4ed6a29288536b11fc" ;
+  gb:group gbgroup:proposals ;
+  rdfs:label "Budget 2026 Proposal — Indigo V2030RS / iUSDt" ;
+  gb:nodeId "bp-indigo-v2030rs" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:proposal ;
+  a gb:Node ;
+  foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e63a4ed6a29288536b11fc> .
+
+n:org-indigo-foundation
+  dcterms:description "Indigo Foundation — proposer of the V2030RS / iUSDt / BTC-Fi / shielded-iAsset package to Cardano Budget 2026." ;
+  gb:group gbgroup:organizations ;
+  rdfs:label "Indigo Foundation" ;
+  gb:nodeId "org-indigo-foundation" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:actor ;
+  a gb:Node ;
+  foaf:page <https://indigoprotocol.io/> .
+
+n:iusdt
+  dcterms:description "iUSDt — institutional-grade tokenized RWA stablecoin proposed by Indigo. Collateralised through institutional liquidity funds rather than on-chain overcollateralisation. Positioned as Cardano's first bridge into institutional RWA liquidity." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "iUSDt" ;
+  gb:nodeId "iusdt" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:protocol ;
+  a gb:Node .
+
+n:rwa
+  dcterms:description "Real-World Asset — off-chain assets (e.g. short-term treasuries, institutional liquidity fund shares) represented on-chain as tokens. Referenced by the Indigo proposal as the collateral base for iUSDt and as a pathway connecting Cardano DeFi to traditional-finance liquidity." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Real-World Asset (RWA)" ;
+  gb:nodeId "rwa" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:v2030rs-revenue-share
+  dcterms:description "V2030RS — the revenue-sharing mechanism the Indigo proposal introduces as a structural alternative to one-way treasury grants. A portion of protocol revenue flows back to the Cardano Treasury, making the ADA ask a partnership rather than a grant." ;
+  gb:group gbgroup:mechanisms ;
+  rdfs:label "V2030RS Revenue-Share" ;
+  gb:nodeId "v2030rs-revenue-share" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:mechanism ;
+  a gb:Node .
+
+n:shielded-iasset
+  dcterms:description "Shielded iAsset — a privacy-preserving synthetic asset issued on partner-chain ecosystems, so that iAsset holdings and flows are confidential while still settling against Cardano via the partner-chain path." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Shielded iAsset" ;
+  gb:nodeId "shielded-iasset" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:btc-fi-market
+  dcterms:description "Indigo's Bitcoin DeFi market — a venue for BTC-denominated positions that routes external Bitcoin liquidity into the Cardano DeFi stack via Indigo." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "BTC-Fi Market" ;
+  gb:nodeId "btc-fi-market" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:protocol ;
+  a gb:Node .
+
+n:btc
+  dcterms:description "Bitcoin — the external asset the Indigo BTC-Fi market builds around. Not native to Cardano; brought in via bridging / wrapping primitives referenced by the proposal." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "BTC" ;
+  gb:nodeId "btc" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://bitcoin.org/> .

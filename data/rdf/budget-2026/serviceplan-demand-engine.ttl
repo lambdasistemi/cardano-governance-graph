@@ -1,0 +1,198 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix gbedge:  <https://lambdasistemi.github.io/graph-browser/vocab/edges#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — Proposal: The Marketing Powered Demand Engine for Cardano
+#  Proposer: Serviceplan Group  |  Request: 20,871,418 ADA
+#  https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e21a177a2045bdd2281d1a
+# =========================================================================
+
+# -- Edges ----------------------------------------------------------------
+
+n:bp-serviceplan-demand-engine cardano:submittedBy n:org-serviceplan-group .
+[] a rdf:Statement ;
+  rdf:subject n:bp-serviceplan-demand-engine ;
+  rdf:predicate cardano:submittedBy ;
+  rdf:object n:org-serviceplan-group ;
+  dcterms:description "Serviceplan Group submitted the Marketing Powered Demand Engine proposal to Cardano Budget 2026 on 2026-04-20." .
+
+n:bp-serviceplan-demand-engine cardano:fundingFrom n:treasury-budgeting .
+[] a rdf:Statement ;
+  rdf:subject n:bp-serviceplan-demand-engine ;
+  rdf:predicate cardano:fundingFrom ;
+  rdf:object n:treasury-budgeting ;
+  dcterms:description "The proposal requests 20,871,418 ADA (~USD 3.55M at 0.17) from the Cardano Treasury via the Budget 2026 process." .
+
+n:bp-serviceplan-demand-engine cardano:deliversArtifact n:demand-engine .
+[] a rdf:Statement ;
+  rdf:subject n:bp-serviceplan-demand-engine ;
+  rdf:predicate cardano:deliversArtifact ;
+  rdf:object n:demand-engine ;
+  dcterms:description "Top-level deliverable is an enterprise demand-generation system positioning Cardano as 'The Blockchain for Serious Business'." .
+
+n:bp-serviceplan-demand-engine cardano:deliversArtifact n:cardano-hub .
+[] a rdf:Statement ;
+  rdf:subject n:bp-serviceplan-demand-engine ;
+  rdf:predicate cardano:deliversArtifact ;
+  rdf:object n:cardano-hub ;
+  dcterms:description "The proposal delivers the Cardano Hub — a central evidence-and-engagement environment for enterprise leads." .
+
+n:demand-engine cardano:targets n:enterprise-adoption .
+[] a rdf:Statement ;
+  rdf:subject n:demand-engine ;
+  rdf:predicate cardano:targets ;
+  rdf:object n:enterprise-adoption ;
+  dcterms:description "The demand engine is aimed at enterprise decision-makers — the segment the proposal argues is currently underserved by Cardano's go-to-market." .
+
+n:demand-engine cardano:implementsProcess n:demand-funnel .
+[] a rdf:Statement ;
+  rdf:subject n:demand-engine ;
+  rdf:predicate cardano:implementsProcess ;
+  rdf:object n:demand-funnel ;
+  dcterms:description "The demand engine operates through a three-stage Attention → Proof → Qualified Leads funnel." .
+
+n:demand-funnel cardano:validatesIn n:pilot-vertical-institutional-defi .
+[] a rdf:Statement ;
+  rdf:subject n:demand-funnel ;
+  rdf:predicate cardano:validatesIn ;
+  rdf:object n:pilot-vertical-institutional-defi ;
+  dcterms:description "Institutional DeFi is the V1 pilot vertical — first enterprise use case tested through the funnel." .
+
+n:demand-funnel cardano:validatesIn n:pilot-vertical-supply-chain .
+[] a rdf:Statement ;
+  rdf:subject n:demand-funnel ;
+  rdf:predicate cardano:validatesIn ;
+  rdf:object n:pilot-vertical-supply-chain ;
+  dcterms:description "Supply Chain Traceability is the V2 pilot vertical — activated after V1 KPI validation, subject to GMC / community alignment." .
+
+n:bp-serviceplan-demand-engine cardano:runsIn n:pilot-market-uk .
+[] a rdf:Statement ;
+  rdf:subject n:bp-serviceplan-demand-engine ;
+  rdf:predicate cardano:runsIn ;
+  rdf:object n:pilot-market-uk ;
+  dcterms:description "UK is one of three pilot markets for the 12-month campaign." .
+
+n:bp-serviceplan-demand-engine cardano:runsIn n:pilot-market-germany .
+[] a rdf:Statement ;
+  rdf:subject n:bp-serviceplan-demand-engine ;
+  rdf:predicate cardano:runsIn ;
+  rdf:object n:pilot-market-germany ;
+  dcterms:description "Germany is one of three pilot markets for the 12-month campaign." .
+
+n:bp-serviceplan-demand-engine cardano:runsIn n:pilot-market-switzerland .
+[] a rdf:Statement ;
+  rdf:subject n:bp-serviceplan-demand-engine ;
+  rdf:predicate cardano:runsIn ;
+  rdf:object n:pilot-market-switzerland ;
+  dcterms:description "Switzerland is one of three pilot markets for the 12-month campaign." .
+
+# -- Nodes ----------------------------------------------------------------
+
+n:bp-serviceplan-demand-engine
+  dcterms:description "Cardano Budget 2026 proposal requesting 20,871,418 ADA (USD ~3.55M @ 0.17). 12-month enterprise marketing pilot positioning Cardano as 'The Blockchain for Serious Business' through a three-stage funnel (Attention → Proof → Qualified Leads). Pilot verticals: Institutional DeFi (V1) and Supply Chain Traceability (V2). Pilot markets: UK, Germany, Switzerland. Targets 45M paid impressions, 320K native views, 300K Hub clicks. Budget €2,978,738, split 53% media / 47% agency. Submitted on 20/04/2026. Read Proposal: https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e21a177a2045bdd2281d1a" ;
+  gb:group gbgroup:proposals ;
+  rdfs:label "Budget 2026 Proposal — Serviceplan Demand Engine" ;
+  gb:nodeId "bp-serviceplan-demand-engine" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:proposal ;
+  a gb:Node ;
+  foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e21a177a2045bdd2281d1a> .
+
+n:org-serviceplan-group
+  dcterms:description "Serviceplan Group — proposer of the Marketing Powered Demand Engine. A marketing-and-agency group delivering the enterprise demand-generation pilot." ;
+  gb:group gbgroup:organizations ;
+  rdfs:label "Serviceplan Group" ;
+  gb:nodeId "org-serviceplan-group" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:actor ;
+  a gb:Node ;
+  foaf:page <https://www.serviceplan.com/> .
+
+n:demand-engine
+  dcterms:description "Enterprise demand-generation system: the top-level artifact of the Serviceplan proposal. Positions Cardano as 'The Blockchain for Serious Business' and drives the three-stage Attention → Proof → Qualified Leads funnel across pilot verticals and markets." ;
+  gb:group gbgroup:tools ;
+  rdfs:label "Cardano Enterprise Demand Engine" ;
+  gb:nodeId "demand-engine" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:tool ;
+  a gb:Node .
+
+n:cardano-hub
+  dcterms:description "Cardano Hub — central evidence and engagement environment proposed by Serviceplan. Destination for paid media, native advertising, and event-to-digital funnels; the Hub is where qualified enterprise leads convert after exposure." ;
+  gb:group gbgroup:tools ;
+  rdfs:label "Cardano Hub" ;
+  gb:nodeId "cardano-hub" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:artifact ;
+  a gb:Node .
+
+n:demand-funnel
+  dcterms:description "Three-stage demand-generation process: Attention (paid media, events, Out of Home), Proof (Cardano Hub evidence environment), Qualified Leads (enterprise sales hand-off). Structured in four work packages: Enable, Kick-off, Scale, V2." ;
+  gb:group gbgroup:processes ;
+  rdfs:label "Attention → Proof → Qualified Leads Funnel" ;
+  gb:nodeId "demand-funnel" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:process ;
+  a gb:Node .
+
+n:enterprise-adoption
+  dcterms:description "Enterprise adoption — the concept the Serviceplan proposal treats as the missing demand signal for Cardano. The proposal argues enterprise leaders currently lack three things: use-case clarity, reliable proof, and engagement paths." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Enterprise Adoption" ;
+  gb:nodeId "enterprise-adoption" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:pilot-vertical-institutional-defi
+  dcterms:description "V1 pilot vertical: Institutional DeFi. First enterprise use case tested through the three-stage demand funnel." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Pilot Vertical — Institutional DeFi" ;
+  gb:nodeId "pilot-vertical-institutional-defi" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:pilot-vertical-supply-chain
+  dcterms:description "V2 pilot vertical: Supply Chain Traceability. Activated after V1 KPI validation; subject to GMC / community alignment." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Pilot Vertical — Supply Chain Traceability" ;
+  gb:nodeId "pilot-vertical-supply-chain" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:pilot-market-uk
+  dcterms:description "Pilot market: United Kingdom. One of three launch markets for the 12-month enterprise demand-generation campaign." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Pilot Market — UK" ;
+  gb:nodeId "pilot-market-uk" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:pilot-market-germany
+  dcterms:description "Pilot market: Germany. One of three launch markets for the 12-month enterprise demand-generation campaign." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Pilot Market — Germany" ;
+  gb:nodeId "pilot-market-germany" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .
+
+n:pilot-market-switzerland
+  dcterms:description "Pilot market: Switzerland. One of three launch markets for the 12-month enterprise demand-generation campaign." ;
+  gb:group gbgroup:concepts ;
+  rdfs:label "Pilot Market — Switzerland" ;
+  gb:nodeId "pilot-market-switzerland" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node .

@@ -266,6 +266,23 @@ cardano:VasilFeature a owl:Class ;
   rdfs:subClassOf cardano:GovernanceMechanism ;
   dcterms:description "A ledger feature introduced in the Vasil/Babbage hard fork." .
 
+# -- Layer 2 / Scaling ---------------------------------------------------------
+
+cardano:L2Protocol a owl:Class ;
+  rdfs:label "Layer 2 Protocol" ;
+  rdfs:subClassOf cardano:DApp ;
+  dcterms:description "A scaling protocol that processes transactions off-chain while inheriting L1 security." .
+
+cardano:L2Component a owl:Class ;
+  rdfs:label "Layer 2 Component" ;
+  rdfs:subClassOf cardano:SmartContractConcept ;
+  dcterms:description "A component of a Layer 2 scaling protocol." .
+
+cardano:L2Lifecycle a owl:Class ;
+  rdfs:label "Layer 2 Lifecycle Phase" ;
+  rdfs:subClassOf cardano:SmartContractConcept ;
+  dcterms:description "A phase in the lifecycle of a Layer 2 head or channel." .
+
 # ==============================================================================
 # Properties — Governance
 # ==============================================================================
@@ -483,8 +500,30 @@ cardano:optimizes a owl:ObjectProperty ;
 cardano:registersMetadataFor a owl:ObjectProperty ;
   rdfs:label "registers metadata for" ;
   rdfs:domain cardano:CIP ;
+  rdfs:range cardano:SmartContractConcept .
+
+cardano:settlesOn a owl:ObjectProperty ;
+  rdfs:label "settles on" ;
+  rdfs:domain cardano:L2Protocol ;
   rdfs:range cardano:SmartContractConcept ;
-  dcterms:description "A CIP that standardizes metadata registration for a concept." .
+  dcterms:description "An L2 protocol that settles state transitions on an L1 ledger." .
+
+cardano:lifecyclePhaseOf a owl:ObjectProperty ;
+  rdfs:label "lifecycle phase of" ;
+  rdfs:domain cardano:L2Lifecycle ;
+  rdfs:range cardano:L2Protocol ;
+  dcterms:description "A lifecycle phase belonging to an L2 protocol." .
+
+cardano:componentOf a owl:ObjectProperty ;
+  rdfs:label "component of" ;
+  rdfs:domain cardano:L2Component ;
+  rdfs:range cardano:L2Protocol ;
+  dcterms:description "A component belonging to an L2 protocol." .
+
+cardano:maintainedBy a owl:ObjectProperty ;
+  rdfs:label "maintained by" ;
+  rdfs:range foaf:Agent ;
+  dcterms:description "An entity that maintains a project or tool." .
 
 # ==============================================================================
 # Alignment — bridge gbkind: classes to cardano: classes
@@ -614,9 +653,30 @@ n:cek-machine  a cardano:SmartContractRuntime .
 
 # -- DApps / Protocols ---------------------------------------------------------
 n:djed     a cardano:DApp .
-n:hydra    a cardano:DApp .
+n:hydra    a cardano:L2Protocol .
 n:liqwid   a cardano:DApp .
 n:minswap  a cardano:DApp .
+
+# -- Hydra components ---------------------------------------------------------
+n:hydra-head                a cardano:L2Component .
+n:hydra-node                a cardano:DeveloperTool .
+n:hydra-snapshot            a cardano:L2Component .
+n:hydra-head-validator      a cardano:L2Component .
+n:hydra-participation-token a cardano:L2Component .
+n:hydra-websocket-api       a cardano:L2Component .
+n:hydra-contestation        a cardano:L2Component .
+n:isomorphic-state-channel  a cardano:SmartContractConcept .
+n:unanimous-consensus       a cardano:SmartContractConcept .
+
+# -- Hydra lifecycle -----------------------------------------------------------
+n:hydra-init    a cardano:L2Lifecycle .
+n:hydra-commit  a cardano:L2Lifecycle .
+n:hydra-open    a cardano:L2Lifecycle .
+n:hydra-close   a cardano:L2Lifecycle .
+n:hydra-fan-out a cardano:L2Lifecycle .
+
+# -- Hydra organization -------------------------------------------------------
+n:cardano-scaling a cardano:GovernanceOrganization .
 
 # -- Tools ---------------------------------------------------------------------
 n:blockfrost       a cardano:DeveloperTool .

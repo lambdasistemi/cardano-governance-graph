@@ -225,6 +225,22 @@
     "tags": ["view", "ontology"]
   },
   {
+    "id": "hydra-ecosystem",
+    "name": "Hydra L2 Ecosystem",
+    "description": "Hydra Head protocol — components, lifecycle phases, consensus, and connections to L1.",
+    "sparql": "PREFIX cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#>\nPREFIX n: <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/>\nSELECT DISTINCT ?node WHERE {\n  { ?node a cardano:L2Protocol }\n  UNION { ?node a cardano:L2Component }\n  UNION { ?node a cardano:L2Lifecycle }\n  UNION { ?node cardano:componentOf n:hydra }\n  UNION { ?node cardano:lifecyclePhaseOf n:hydra }\n  UNION { ?node cardano:maintainedBy ?org }\n  UNION { VALUES ?node { n:hydra n:eutxo n:plutus n:state-machine n:reference-inputs n:cardano-scaling n:isomorphic-state-channel n:unanimous-consensus } }\n}",
+    "tags": [
+      "view"
+    ]
+  },
+  {
+    "id": "hydra-lifecycle",
+    "name": "Hydra Head Lifecycle",
+    "description": "The five phases of a Hydra head: Init → Commit → Open → Close → Fan-out.",
+    "sparql": "PREFIX cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#>\nPREFIX n: <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/>\nSELECT DISTINCT ?node WHERE {\n  { ?node a cardano:L2Lifecycle }\n  UNION { VALUES ?node { n:hydra n:hydra-contestation n:hydra-snapshot n:hydra-participation-token } }\n}",
+    "tags": []
+  },
+  {
     "id": "ontology-alignments",
     "name": "Ontology Alignments",
     "description": "Classes touched by equivalentClass or equivalentProperty mappings.",

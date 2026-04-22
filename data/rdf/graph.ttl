@@ -134,6 +134,176 @@ n:hydra gbedge:replicates n:eutxo .
   rdf:object n:eutxo ;
   dcterms:description "Hydra L2 heads replicate the full EUTxO model off-chain with the same smart contract semantics." .
 
+# -- Hydra ecosystem edges -----------------------------------------------------
+
+n:hydra cardano:settlesOn n:eutxo .
+[] a rdf:Statement ;
+  rdf:subject n:hydra ;
+  rdf:predicate cardano:settlesOn ;
+  rdf:object n:eutxo ;
+  dcterms:description "Hydra heads settle their final state back to the Cardano L1 EUTxO ledger via fan-out transactions." .
+
+n:hydra-head cardano:componentOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-head ;
+  rdf:predicate cardano:componentOf ;
+  rdf:object n:hydra ;
+  dcterms:description "A Hydra head is an individual state channel instance managed by a fixed set of participants." .
+
+n:hydra-node cardano:componentOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-node ;
+  rdf:predicate cardano:componentOf ;
+  rdf:object n:hydra ;
+  dcterms:description "The hydra-node binary is the off-chain software that runs the Head protocol, manages consensus, and exposes the WebSocket API." .
+
+n:hydra-snapshot cardano:componentOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-snapshot ;
+  rdf:predicate cardano:componentOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Snapshots capture agreed-upon UTxO state inside a head. All participants must multi-sign each snapshot." .
+
+n:hydra-head-validator cardano:componentOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-head-validator ;
+  rdf:predicate cardano:componentOf ;
+  rdf:object n:hydra ;
+  dcterms:description "The on-chain Head validator is a Plutus state machine that governs the lifecycle: Init, Open, Closed, Final." .
+
+n:hydra-participation-token cardano:componentOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-participation-token ;
+  rdf:predicate cardano:componentOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Participation tokens (PTs) are minted during head initialization. Each participant holds one PT, proving membership." .
+
+n:hydra-websocket-api cardano:componentOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-websocket-api ;
+  rdf:predicate cardano:componentOf ;
+  rdf:object n:hydra ;
+  dcterms:description "The WebSocket API is the primary interface for submitting transactions to a head and observing state changes." .
+
+n:hydra-contestation cardano:componentOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-contestation ;
+  rdf:predicate cardano:componentOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Contestation is the dispute resolution mechanism: after a head closes, participants can contest with a more recent snapshot during the contestation period." .
+
+n:hydra-init cardano:lifecyclePhaseOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-init ;
+  rdf:predicate cardano:lifecyclePhaseOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Initialization posts the head parameters and mints participation tokens on L1. Each participant commits UTxOs." .
+
+n:hydra-commit cardano:lifecyclePhaseOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-commit ;
+  rdf:predicate cardano:lifecyclePhaseOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Commit locks UTxOs from L1 into the head. All participants must commit before the head opens. Incremental commits allow adding UTxOs to an already-open head." .
+
+n:hydra-open cardano:lifecyclePhaseOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-open ;
+  rdf:predicate cardano:lifecyclePhaseOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Open phase: the head processes transactions off-chain with sub-second finality. Transactions are confirmed when all participants sign the resulting snapshot." .
+
+n:hydra-close cardano:lifecyclePhaseOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-close ;
+  rdf:predicate cardano:lifecyclePhaseOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Close posts the latest snapshot to L1 and starts the contestation period. Any participant can close unilaterally." .
+
+n:hydra-fan-out cardano:lifecyclePhaseOf n:hydra .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-fan-out ;
+  rdf:predicate cardano:lifecyclePhaseOf ;
+  rdf:object n:hydra ;
+  dcterms:description "Fan-out distributes the head's final UTxO set back to L1 after the contestation period expires. Each committed UTxO becomes a real L1 UTxO." .
+
+n:hydra-head-validator gbedge:implements n:state-machine .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-head-validator ;
+  rdf:predicate gbedge:implements ;
+  rdf:object n:state-machine ;
+  dcterms:description "The Head validator is a Plutus state machine with states: Initial, Open, Closed. Transitions are governed by multi-signed snapshots." .
+
+n:hydra-head gbedge:uses n:reference-inputs .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-head ;
+  rdf:predicate gbedge:uses ;
+  rdf:object n:reference-inputs ;
+  dcterms:description "Hydra heads use CIP-31 reference inputs to read L1 state (e.g. script references, protocol parameters) without consuming UTxOs." .
+
+n:hydra gbedge:uses n:plutus .
+[] a rdf:Statement ;
+  rdf:subject n:hydra ;
+  rdf:predicate gbedge:uses ;
+  rdf:object n:plutus ;
+  dcterms:description "Hydra's isomorphic design means the same Plutus scripts run identically on L1 and inside a head. No script modification needed." .
+
+n:isomorphic-state-channel gbedge:enables n:hydra-head .
+[] a rdf:Statement ;
+  rdf:subject n:isomorphic-state-channel ;
+  rdf:predicate gbedge:enables ;
+  rdf:object n:hydra-head ;
+  dcterms:description "Isomorphic state channels are the theoretical foundation: L2 replicates L1's ledger rules exactly, so any L1 validator works unmodified in a head." .
+
+n:unanimous-consensus gbedge:enables n:hydra-snapshot .
+[] a rdf:Statement ;
+  rdf:subject n:unanimous-consensus ;
+  rdf:predicate gbedge:enables ;
+  rdf:object n:hydra-snapshot ;
+  dcterms:description "All head participants must sign every snapshot. This gives instant finality within the head but means any single party can block progress." .
+
+n:hydra-contestation gbedge:requires n:hydra-snapshot .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-contestation ;
+  rdf:predicate gbedge:requires ;
+  rdf:object n:hydra-snapshot ;
+  dcterms:description "Contestation requires presenting a more recent multi-signed snapshot than the one used to close the head." .
+
+n:hydra-init gbedge:generates n:hydra-participation-token .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-init ;
+  rdf:predicate gbedge:generates ;
+  rdf:object n:hydra-participation-token ;
+  dcterms:description "Head initialization mints one participation token per participant, locked in the head validator." .
+
+n:hydra-fan-out gbedge:consumes n:hydra-participation-token .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-fan-out ;
+  rdf:predicate gbedge:consumes ;
+  rdf:object n:hydra-participation-token ;
+  dcterms:description "Fan-out burns participation tokens and distributes the final UTxO set to L1." .
+
+n:hydra cardano:maintainedBy n:cardano-scaling .
+[] a rdf:Statement ;
+  rdf:subject n:hydra ;
+  rdf:predicate cardano:maintainedBy ;
+  rdf:object n:cardano-scaling ;
+  dcterms:description "Hydra is developed and maintained by the Cardano Scaling team (formerly IOG Hydra team)." .
+
+n:hydra-close gbedge:enables n:hydra-contestation .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-close ;
+  rdf:predicate gbedge:enables ;
+  rdf:object n:hydra-contestation ;
+  dcterms:description "Closing a head starts the contestation period, during which any participant can contest with a newer snapshot." .
+
+n:hydra-node gbedge:provides n:hydra-websocket-api .
+[] a rdf:Statement ;
+  rdf:subject n:hydra-node ;
+  rdf:predicate gbedge:provides ;
+  rdf:object n:hydra-websocket-api ;
+  dcterms:description "The hydra-node process exposes a WebSocket API for clients to submit transactions and receive state updates." .
+
 n:liqwid cardano:writtenIn n:plutarch .
 [] a rdf:Statement ;
   rdf:subject n:liqwid ;
@@ -1086,6 +1256,160 @@ n:hydra
   rdfs:seeAlso <https://docs.cardano.org/developer-resources/scalability-solutions/hydra> ;
   rdfs:seeAlso <https://hydra.family/head-protocol/> ;
   rdfs:seeAlso <https://github.com/cardano-scaling/hydra> .
+
+n:hydra-head
+  dcterms:description "An individual Hydra head — an off-chain mini-ledger shared by a fixed set of participants. Each head maintains its own UTxO set, processes transactions with sub-second finality, and settles back to L1 via fan-out. Multiple heads can run concurrently and independently." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Hydra Head" ;
+  gb:nodeId "hydra-head" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> ;
+  rdfs:seeAlso <https://hydra.family/head-protocol/topologies/> .
+
+n:hydra-node
+  dcterms:description "The hydra-node is the off-chain Haskell process that each participant runs. It manages the Head protocol state machine, communicates with peers via an authenticated network layer, and exposes a WebSocket API for client applications. Connects to a cardano-node for L1 chain following." ;
+  gb:group gbgroup:tooling ;
+  rdfs:label "Hydra Node" ;
+  gb:nodeId "hydra-node" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:tool ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/getting-started/> ;
+  rdfs:seeAlso <https://github.com/cardano-scaling/hydra/tree/master/hydra-node> .
+
+n:hydra-snapshot
+  dcterms:description "A snapshot captures the agreed-upon UTxO state inside an open head at a point in time. Every snapshot must be multi-signed by all participants (unanimous consensus). Confirmed snapshots are irrevocable — they cannot be rolled back. The latest confirmed snapshot is used to close and contest." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Hydra Snapshot" ;
+  gb:nodeId "hydra-snapshot" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:hydra-head-validator
+  dcterms:description "The on-chain Plutus validator that governs the Hydra head lifecycle. Implements a state machine with states Initial, Open, and Closed. Validates multi-signatures, snapshot hashes, and contestation logic. Originally written in Plutus-Tx, commit validator migrated to Aiken for 20-50% cost reduction." ;
+  gb:group gbgroup:smart-contracts ;
+  rdfs:label "Head Validator" ;
+  gb:nodeId "hydra-head-validator" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://github.com/cardano-scaling/hydra/tree/master/hydra-plutus> ;
+  rdfs:seeAlso <https://github.com/cardano-scaling/hydra/blob/master/hydra-plutus/src/Hydra/Contract/Head.hs> .
+
+n:hydra-participation-token
+  dcterms:description "Participation tokens (PTs) are NFTs minted during head initialization, one per participant. They prove membership in the head and are locked in the head validator. PTs are burned during fan-out, ensuring the head can only be finalized once." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Participation Token" ;
+  gb:nodeId "hydra-participation-token" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:hydra-websocket-api
+  dcterms:description "The primary client interface to a hydra-node. Clients connect via WebSocket to submit NewTx commands, receive transaction confirmations (SnapshotConfirmed), and observe head lifecycle events (HeadIsOpen, HeadIsClosed, ReadyToFanout). Supports the same transaction format as L1." ;
+  gb:group gbgroup:tooling ;
+  rdfs:label "Hydra WebSocket API" ;
+  gb:nodeId "hydra-websocket-api" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/api-reference/> .
+
+n:hydra-contestation
+  dcterms:description "Dispute resolution mechanism for Hydra heads. After a head is closed on L1, a contestation period begins (configurable duration). During this window, any participant can contest by presenting a more recent multi-signed snapshot. After the period expires with no successful contest, fan-out becomes available." ;
+  gb:group gbgroup:protocols ;
+  rdfs:label "Contestation" ;
+  gb:nodeId "hydra-contestation" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:mechanism ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:hydra-init
+  dcterms:description "Head initialization phase. A participant posts an init transaction on L1, declaring head parameters (participants, contestation period). The head validator mints participation tokens. Each participant then commits UTxOs from L1 into the head." ;
+  gb:group gbgroup:lifecycle ;
+  rdfs:label "Init" ;
+  gb:nodeId "hydra-init" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:process ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:hydra-commit
+  dcterms:description "Commit phase locks L1 UTxOs into the head. Each participant selects which UTxOs to commit. All participants must commit before the head opens. Incremental commits (added later) allow committing additional UTxOs to an already-open head, and incremental decommits allow withdrawing." ;
+  gb:group gbgroup:lifecycle ;
+  rdfs:label "Commit" ;
+  gb:nodeId "hydra-commit" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:process ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> ;
+  rdfs:seeAlso <https://github.com/cardano-scaling/hydra/blob/master/hydra-plutus/src/Hydra/Contract/Commit.hs> .
+
+n:hydra-open
+  dcterms:description "Open phase: the head is live and processing transactions off-chain. Any participant can submit transactions via the WebSocket API. Transactions are validated against the head's local UTxO set using the same Plutus rules as L1. Confirmed via unanimous multi-signature on snapshots." ;
+  gb:group gbgroup:lifecycle ;
+  rdfs:label "Open" ;
+  gb:nodeId "hydra-open" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:process ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:hydra-close
+  dcterms:description "Close phase: any participant can unilaterally close the head by posting the latest confirmed snapshot to L1. This starts the contestation period. The on-chain validator verifies the snapshot's multi-signature before accepting the close." ;
+  gb:group gbgroup:lifecycle ;
+  rdfs:label "Close" ;
+  gb:nodeId "hydra-close" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:process ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:hydra-fan-out
+  dcterms:description "Fan-out is the final settlement: after the contestation period expires, any participant can post a fan-out transaction that distributes the head's UTxOs back to L1. Participation tokens are burned. The head ceases to exist." ;
+  gb:group gbgroup:lifecycle ;
+  rdfs:label "Fan-out" ;
+  gb:nodeId "hydra-fan-out" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:process ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:isomorphic-state-channel
+  dcterms:description "The core theoretical property of Hydra: the L2 channel replicates the L1 ledger rules exactly. Any Plutus script, any transaction structure, any validator that works on L1 works identically inside a head with no modifications. This is in contrast to rollup-style L2s that require adapted contracts." ;
+  gb:group gbgroup:core ;
+  rdfs:label "Isomorphic State Channel" ;
+  gb:nodeId "isomorphic-state-channel" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://iohk.io/en/research/library/papers/hydra-fast-isomorphic-state-channels/> .
+
+n:unanimous-consensus
+  dcterms:description "Hydra's consensus model: every snapshot and every transaction must be signed by all head participants. This gives instant finality (no confirmation delay) but means a single unresponsive party blocks the entire head. The trade-off is mitigated by the ability to close unilaterally." ;
+  gb:group gbgroup:core ;
+  rdfs:label "Unanimous Consensus" ;
+  gb:nodeId "unanimous-consensus" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:concept ;
+  a gb:Node ;
+  foaf:page <https://hydra.family/head-protocol/core-concepts/> .
+
+n:cardano-scaling
+  dcterms:description "The team responsible for developing and maintaining the Hydra Head protocol implementation. Formerly part of IOG, now operating under the Cardano Scaling umbrella. Maintains the hydra repository, documentation, and related tooling." ;
+  gb:group gbgroup:ecosystem ;
+  rdfs:label "Cardano Scaling" ;
+  gb:nodeId "cardano-scaling" ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  a gbkind:actor ;
+  a gb:Node ;
+  foaf:page <https://github.com/cardano-scaling> .
 
 n:liqwid
   dcterms:description "Leading lending/borrowing protocol on Cardano. Non-custodial, supports liquid staking. DAO-governed via LQ token. Uses Plutarch for performance-critical validators. Demonstrates complex multi-contract DeFi on EUTxO." ;
@@ -2503,8 +2827,8 @@ gbkind:action-type
 
 <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf>
   gb:sourceRepository "https://github.com/lambdasistemi/cardano-knowledge-maps"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-  gb:edgeCount 129 ;
-  gb:nodeCount 88 ;
+  gb:edgeCount 153 ;
+  gb:nodeCount 103 ;
   dcterms:description "Interactive knowledge maps of the Cardano ecosystem — governance, smart contracts, and more." ;
   dcterms:title "Cardano Knowledge Maps" ;
   a gb:Dataset .

@@ -105,7 +105,28 @@
     "id": "budget-2026",
     "name": "Budget 2026 Proposals",
     "description": "Cardano Budget 2026 — all submitted proposals with their proposers, deliverables, and treasury links.",
-    "sparql": "PREFIX gbkind: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nPREFIX cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#>\nSELECT DISTINCT ?node WHERE {\n  { ?node a gbkind:proposal }\n  UNION { ?proposal a gbkind:proposal ; cardano:submittedBy ?node }\n  UNION { ?proposal a gbkind:proposal ; cardano:deliversArtifact ?node }\n  UNION { ?proposal a gbkind:proposal ; cardano:fundingFrom ?node }\n  UNION { ?proposal a gbkind:proposal ; cardano:runsIn ?node }\n}",
+    "sparql": "PREFIX gbkind: <https://lambdasistemi.github.io/graph-browser/vocab/kinds#>\nPREFIX cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#>\nSELECT DISTINCT ?node WHERE {\n  { ?node a gbkind:proposal }\n  UNION { ?proposal a gbkind:proposal ; cardano:proposedBy ?node }\n  UNION { ?proposal a gbkind:proposal ; cardano:administeredBy ?node }\n  UNION { ?proposal a gbkind:proposal ; cardano:deliversArtifact ?node }\n  UNION { ?proposal a gbkind:proposal ; cardano:partOfBudgetProcess ?node }\n  UNION { ?proposal a gbkind:proposal ; cardano:runsIn ?node }\n}",
+    "tags": ["view", "budget-2026"]
+  },
+  {
+    "id": "budget-2026-work-packages",
+    "name": "Budget 2026 — Work Packages",
+    "description": "Every Budget 2026 work package with its parent proposal, milestones, line items, cost categories, and the partner/role each line item is performed by.",
+    "sparql": "PREFIX cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#>\nSELECT DISTINCT ?node WHERE {\n  { ?node a cardano:WorkPackage }\n  UNION { ?proposal cardano:hasWorkPackage ?node . FILTER(STR(?proposal) != '') }\n  UNION { ?node a cardano:BudgetProposal }\n  UNION { ?wp a cardano:WorkPackage ; cardano:hasWorkPackageMilestone ?node }\n  UNION { ?wp a cardano:WorkPackage ; cardano:hasBudgetLineItem ?node }\n  UNION { ?bli a cardano:BudgetLineItem ; cardano:lineItemCategory ?node }\n  UNION { ?bli a cardano:BudgetLineItem ; cardano:lineItemPerformedBy ?node }\n}",
+    "tags": ["view", "budget-2026"]
+  },
+  {
+    "id": "budget-2026-strategy-alignment",
+    "name": "Budget 2026 — Strategy & KPIs",
+    "description": "How Budget 2026 proposals align with the Cardano 2030 Strategy Framework: pillars, supported KPIs, and proposed new KPIs.",
+    "sparql": "PREFIX cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#>\nSELECT DISTINCT ?node WHERE {\n  { ?node a cardano:BudgetProposal }\n  UNION { ?node a cardano:StrategicPillar }\n  UNION { ?node a cardano:StrategyKPI }\n}",
+    "tags": ["view", "budget-2026"]
+  },
+  {
+    "id": "budget-2026-treasury-flow",
+    "name": "Budget 2026 — Treasury Flow",
+    "description": "How money moves through the Budget 2026 process: the budget process node, every proposal, every repayment clause and the treasury they return to.",
+    "sparql": "PREFIX cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#>\nSELECT DISTINCT ?node WHERE {\n  { ?node a cardano:BudgetProcess }\n  UNION { ?node a cardano:BudgetProposal }\n  UNION { ?node a cardano:RepaymentClause }\n  UNION { ?node a cardano:TreasuryBudgeting }\n  UNION { ?node a cardano:TreasuryWithdrawal }\n}",
     "tags": ["view", "budget-2026"]
   },
   {

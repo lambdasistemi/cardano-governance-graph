@@ -106,5 +106,11 @@
     "title": "Serviceplan Demand Engine — Deep Dive",
     "description": "What the Marketing Powered Demand Engine proposal actually delivers, why it's the largest ADA ask on the slate despite being non-technical, and the substantive criticisms that have already landed.",
     "file": "data/tutorials/budget-2026-serviceplan-demand-engine.json"
+  },
+  {
+    "id": "budget-2026-io-consensus-leios",
+    "title": "IO Consensus / Leios — Deep Dive",
+    "description": "What the Leios consensus proposal is actually delivering, why it is the linchpin of the Cardano 2030 throughput KPIs, who is involved, and what end-of-2026 mainnet activation means in practice.",
+    "file": "data/tutorials/budget-2026-io-consensus-leios.json"
   }
 ]

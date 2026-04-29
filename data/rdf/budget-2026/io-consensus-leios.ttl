@@ -1,5 +1,6 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 @prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
@@ -12,8 +13,11 @@
 #  Cardano Budget 2026 — IO Proposal: Consensus / Leios
 #  Proposer: Input | Output Global  |  Lead: Carlos Lopez De Lara
 #  Joint delivery: IOG + Intersect + multi-vendor consortium
+#  Headline target: end-of-2026 mainnet activation of Ouroboros Leios
 #  Reference: https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview
 # =========================================================================
+
+# -- Proposal-level facts --------------------------------------------------
 
 n:bp-io-consensus-leios a cardano:BudgetProposal ;
   a gb:Node ;
@@ -25,9 +29,140 @@ n:bp-io-consensus-leios a cardano:BudgetProposal ;
   dcterms:description "Delivery of the Leios consensus upgrade — Ouroboros throughput-focused extension targeting a 10–65× sustained transaction-rate increase. Includes formal specification, reference implementation, security analysis, and mainnet-readiness work, with end-of-2026 mainnet activation as the headline milestone. Joint delivery between IOG, Intersect, and a multi-vendor consortium. Lead: Carlos Lopez De Lara." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   foaf:page <https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview> ;
+  rdfs:seeAlso <https://leios.cardano-scaling.org/> ;
+  rdfs:seeAlso <https://github.com/input-output-hk/ouroboros-leios> ;
   dcterms:subject cardano:Workstream-Consensus ,
                   cardano:Status-Voting .
 
 n:bp-io-consensus-leios cardano:partOfBudgetProcess n:cardano-budget-2026 .
 n:bp-io-consensus-leios cardano:proposedBy n:org-input-output .
 n:bp-io-consensus-leios cardano:administeredBy n:org-intersect .
+
+# -- Strategic alignment --------------------------------------------------
+
+n:bp-io-consensus-leios cardano:alignsWithPillar n:pillar-1-infrastructure .
+n:bp-io-consensus-leios cardano:alignsWithPillar n:pillar-2-adoption .
+n:bp-io-consensus-leios cardano:alignsWithPillar n:pillar-5-sustainability .
+
+[] a rdf:Statement ;
+  rdf:subject n:bp-io-consensus-leios ;
+  rdf:predicate cardano:alignsWithPillar ;
+  rdf:object n:pillar-1-infrastructure ;
+  dcterms:description "Leios is a foundational protocol upgrade — the largest Ouroboros throughput change since Praos. The proposal is justified primarily under Pillar 1 (Infrastructure & Research Excellence)." .
+
+[] a rdf:Statement ;
+  rdf:subject n:bp-io-consensus-leios ;
+  rdf:predicate cardano:alignsWithPillar ;
+  rdf:object n:pillar-2-adoption ;
+  dcterms:description "10–65× sustained TPS removes the single most-cited adoption blocker for high-volume use cases (DeFi orderbooks, high-frequency settlement, mass-market consumer apps). The proposal is the underwriter for adoption-pillar growth targets." .
+
+n:bp-io-consensus-leios cardano:supportsKPI n:kpi-monthly-transactions .
+n:bp-io-consensus-leios cardano:supportsKPI n:kpi-annual-protocol-revenue .
+
+[] a rdf:Statement ;
+  rdf:subject n:bp-io-consensus-leios ;
+  rdf:predicate cardano:supportsKPI ;
+  rdf:object n:kpi-monthly-transactions ;
+  dcterms:description "10–65× sustained throughput is the structural change that makes the framework's 27M monthly-transactions target reachable. Without Leios, the current Praos throughput ceiling caps the achievable KPI." .
+
+[] a rdf:Statement ;
+  rdf:subject n:bp-io-consensus-leios ;
+  rdf:predicate cardano:supportsKPI ;
+  rdf:object n:kpi-annual-protocol-revenue ;
+  dcterms:description "Higher sustained throughput translates directly into higher annual fee revenue at constant per-tx fees — the principal lever on the framework's ≥16M ADA Annual Protocol Revenue target." .
+
+# -- Technical anchor: this proposal delivers Ouroboros Leios -------------
+
+n:bp-io-consensus-leios cardano:enables n:ouroboros-leios .
+
+[] a rdf:Statement ;
+  rdf:subject n:bp-io-consensus-leios ;
+  rdf:predicate cardano:enables ;
+  rdf:object n:ouroboros-leios ;
+  dcterms:description "Ouroboros Leios is the protocol; this proposal is the Budget 2026 vehicle that funds the work needed to ship it on mainnet — formal spec freeze, reference implementation, security analysis, and the network-wide activation that turns the protocol from research artefact into a live consensus regime." .
+
+# -- Programme milestone: end-of-2026 mainnet activation ------------------
+
+n:leios-ms-mainnet-activation a cardano:WorkPackageMilestone ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "leios-ms-mainnet-activation" ;
+  rdfs:label "Leios Programme Milestone — Mainnet Activation (Q4 2026)" ;
+  gb:group gbgroup:concepts ;
+  cardano:milestoneMonth "12"^^xsd:integer ;
+  dcterms:description "Headline deliverable of the proposal: Ouroboros Leios active on Cardano mainnet by end of 2026. Predicated on prior milestones for spec freeze, reference implementation cleared by audit, and a coordinated SPO/exchange/wallet upgrade rollout." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+# -- Work packages --------------------------------------------------------
+
+n:bp-io-consensus-leios cardano:hasWorkPackage n:wp-leios-1-formal-spec .
+n:bp-io-consensus-leios cardano:hasWorkPackage n:wp-leios-2-reference-impl .
+n:bp-io-consensus-leios cardano:hasWorkPackage n:wp-leios-3-security-analysis .
+n:bp-io-consensus-leios cardano:hasWorkPackage n:wp-leios-4-mainnet-activation .
+n:bp-io-consensus-leios cardano:hasWorkPackage n:wp-leios-5-coordination .
+
+n:wp-leios-1-formal-spec a cardano:WorkPackage ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "wp-leios-1-formal-spec" ;
+  rdfs:label "Leios WP1 — Formal Specification Freeze" ;
+  gb:group gbgroup:concepts ;
+  cardano:proposalNature "Technical" ;
+  cardano:initiativeStatus "Continued Initiative" ;
+  dcterms:description "Convert the in-flight Leios research into a frozen, implementation-grade specification: input-block, endorsement-block, and ranking-block diffusion semantics, fee-and-incentive surface, parameter ranges, and the Praos / Peras / Tachýs composition contract. Output is the artifact that the reference implementation and the security analysis both target." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+n:wp-leios-2-reference-impl a cardano:WorkPackage ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "wp-leios-2-reference-impl" ;
+  rdfs:label "Leios WP2 — Reference Implementation in cardano-node" ;
+  gb:group gbgroup:concepts ;
+  cardano:proposalNature "Technical" ;
+  cardano:initiativeStatus "New Initiative" ;
+  dcterms:description "Production-quality Leios implementation merged into cardano-node: input-block diffusion pipeline, endorsement-block aggregation, mempool changes for the higher transaction rate, and a Praos/Leios toggle so existing Praos behaviour is unchanged when Leios is disabled. Joint delivery with Intersect's release-engineering function." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+n:wp-leios-3-security-analysis a cardano:WorkPackage ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "wp-leios-3-security-analysis" ;
+  rdfs:label "Leios WP3 — Security and Cryptographic Analysis" ;
+  gb:group gbgroup:concepts ;
+  cardano:proposalNature "Technical" ;
+  cardano:initiativeStatus "New Initiative" ;
+  dcterms:description "Independent security analysis covering: liveness and safety of the three-pipeline construction under adversarial input rates, incentive compatibility for honest block producers, DoS resistance of the input-block diffusion path, and an empirical attack-cost study against the live Praos baseline. Multi-vendor: a portion of the work goes to external cryptography teams." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+n:wp-leios-4-mainnet-activation a cardano:WorkPackage ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "wp-leios-4-mainnet-activation" ;
+  rdfs:label "Leios WP4 — Mainnet-Readiness and Activation" ;
+  gb:group gbgroup:concepts ;
+  cardano:proposalNature "Technical" ;
+  cardano:initiativeStatus "New Initiative" ;
+  dcterms:description "Operational readiness for the network-wide upgrade: SPO upgrade documentation and rehearsal on a Leios devnet, exchange and wallet provider coordination, hard-fork combinator activation parameters, post-activation monitoring plan, rollback design. Closes on the end-of-2026 mainnet activation milestone." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+n:wp-leios-4-mainnet-activation cardano:hasWorkPackageMilestone n:leios-ms-mainnet-activation .
+
+n:wp-leios-5-coordination a cardano:WorkPackage ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "wp-leios-5-coordination" ;
+  rdfs:label "Leios WP5 — Programme Coordination and Reporting" ;
+  gb:group gbgroup:concepts ;
+  cardano:proposalNature "Non-technical" ;
+  cardano:initiativeStatus "New Initiative" ;
+  dcterms:description "Cross-organisation programme management: IOG technical track, Intersect oversight and disbursement, multi-vendor coordination, monthly Cardano Forum updates, quarterly DRep reports, ecosystem communication for the activation window." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+# -- Composition with adjacent consensus extensions -----------------------
+
+n:bp-io-consensus-leios cardano:builtOn n:ouroboros-peras .
+
+[] a rdf:Statement ;
+  rdf:subject n:bp-io-consensus-leios ;
+  rdf:predicate cardano:builtOn ;
+  rdf:object n:ouroboros-peras ;
+  dcterms:description "Leios is designed to compose with Peras: Leios provides the throughput pipeline, Peras provides the fast-finality layer. The proposal explicitly preserves the Peras composition contract; Leios activation does not invalidate Peras settlement guarantees." .

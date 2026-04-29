@@ -33,7 +33,9 @@ n:bp-serviceplan-demand-engine a cardano:BudgetProposal ;
   cardano:applicantType "Company" ;
   dcterms:description "Cardano Budget 2026 proposal requesting 20,871,418 ADA (USD ~3.55M @ 0.17). 12-month enterprise marketing pilot positioning Cardano as 'The Blockchain for Serious Business' through a three-stage funnel (Attention → Proof → Qualified Leads). Pilot verticals: Institutional DeFi (V1) and Supply Chain Traceability (V2). Pilot markets: UK, Germany, Switzerland. Targets: 45M paid impressions, 320K native views, 300K Hub clicks. Total agency investment: €2,978,738 (53% media / 47% agency services). 30% ADA/EUR conversion buffer baked into the requested amount; surplus returns to Treasury minus FX conversion costs." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
-  foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e21a177a2045bdd2281d1a> .
+  foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e21a177a2045bdd2281d1a> ;
+  dcterms:subject cardano:Workstream-Ecosystem ,
+                  cardano:Status-Voting .
 
 n:bp-serviceplan-demand-engine cardano:partOfBudgetProcess n:cardano-budget-2026 .
 n:bp-serviceplan-demand-engine cardano:proposedBy n:org-serviceplan-group .

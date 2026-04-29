@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: lambdasistemi/graph-browser
-          ref: ca954c3
+          ref: ca954c3fcc2c504d80191038d8767970a53e1807
           path: graph-browser
 
       # Validate against the schema bundled in the PR #86 checkout so

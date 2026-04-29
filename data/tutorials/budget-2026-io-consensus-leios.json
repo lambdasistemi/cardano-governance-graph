@@ -1,0 +1,79 @@
+{
+  "id": "budget-2026-io-consensus-leios",
+  "title": "IO Consensus / Leios — Deep Dive",
+  "description": "What the Leios consensus proposal is actually delivering, why it is the linchpin of the Cardano 2030 throughput KPIs, who is involved, and what end-of-2026 mainnet activation means in practice.",
+  "stops": [
+    {
+      "node": "bp-io-consensus-leios",
+      "depth": 1,
+      "title": "The pitch in one sentence",
+      "narrative": "**End-of-2026 Cardano mainnet activation of Ouroboros Leios.** This is the largest Ouroboros throughput change since Praos: a 10–65× sustained transaction-rate increase that decouples transaction diffusion, endorsement and ranking into separate concurrent pipelines. The proposal is the Budget 2026 vehicle — submitted by [Input | Output Global](node:org-input-output) and administered by [Intersect](node:org-intersect) — that funds the work needed to ship it on mainnet. Lead: Carlos Lopez De Lara."
+    },
+    {
+      "node": "ouroboros-leios",
+      "depth": 1,
+      "title": "Ouroboros Leios — the protocol the proposal delivers",
+      "narrative": "[Ouroboros Leios](node:ouroboros-leios) is a research extension of the Ouroboros family that splits consensus into three concurrent pipelines: **input blocks** carry transactions, **endorsement blocks** acknowledge them, and **ranking blocks** order them. Decoupling these stages is what unlocks the throughput jump.\n\nLeios composes with Praos, [Peras](node:ouroboros-peras) and [Tachýs](node:ouroboros-tachys) — the proposal explicitly preserves the composition contract, so mainnet-Praos behaviour is unchanged when Leios is disabled and Peras settlement guarantees survive Leios activation."
+    },
+    {
+      "node": "pillar-1-infrastructure",
+      "depth": 1,
+      "title": "Why Pillar 1 — Infrastructure & Research Excellence carries it",
+      "narrative": "Leios is a foundational protocol upgrade. It is justified primarily under [Pillar 1](node:pillar-1-infrastructure): Cardano needs the throughput headroom to remain credible against L1 competitors, and the proposal funds the formal-spec / reference-impl / security-analysis chain that infrastructure changes of this magnitude require.\n\nThis is the proposal that gives the rest of the IO slate room to land — Smart Contract / DeFi / L2 work all assume future throughput Leios delivers."
+    },
+    {
+      "node": "pillar-2-adoption",
+      "depth": 1,
+      "title": "Why Pillar 2 — Adoption & Utility also depends on it",
+      "narrative": "[Pillar 2 — Adoption & Utility](node:pillar-2-adoption) names throughput as the single most-cited adoption blocker. High-volume use cases (DeFi orderbooks, high-frequency settlement, mass-market consumer apps) cannot run against current Praos throughput.\n\nLeios is therefore the underwriter for adoption-pillar growth: without the throughput headroom, the adoption KPIs are not reachable no matter what the application teams build."
+    },
+    {
+      "node": "kpi-monthly-transactions",
+      "depth": 1,
+      "title": "The KPI Leios is structurally responsible for",
+      "narrative": "The Cardano 2030 framework targets **27M monthly transactions**. At current Praos throughput, that target is mechanically unreachable. [Monthly transactions](node:kpi-monthly-transactions) is the headline KPI Leios moves the needle on — 10–65× sustained TPS converts the framework target from aspirational to feasible."
+    },
+    {
+      "node": "kpi-annual-protocol-revenue",
+      "depth": 1,
+      "title": "And the second-order KPI it underwrites",
+      "narrative": "Higher sustained throughput translates directly into higher annual fee revenue at constant per-tx fees. [Annual protocol revenue](node:kpi-annual-protocol-revenue) — the framework's ≥16M ADA target — is the second-order beneficiary of Leios. The protocol does not change fee economics; it just removes the throughput cap that bounds them."
+    },
+    {
+      "node": "wp-leios-1-formal-spec",
+      "depth": 1,
+      "title": "WP1 — Formal specification freeze",
+      "narrative": "The first work package converts in-flight Leios research into a frozen, implementation-grade [specification](node:wp-leios-1-formal-spec): input-block / endorsement-block / ranking-block diffusion semantics, fee-and-incentive surface, parameter ranges, and the [Praos / Peras / Tachýs](node:ouroboros-peras) composition contract. The output is the artifact both the implementation and the security analysis target."
+    },
+    {
+      "node": "wp-leios-2-reference-impl",
+      "depth": 1,
+      "title": "WP2 — Reference implementation in cardano-node",
+      "narrative": "[WP2](node:wp-leios-2-reference-impl) is the production-quality merge into cardano-node: input-block diffusion pipeline, endorsement-block aggregation, mempool changes for the higher tx rate, and a Praos/Leios toggle so existing Praos behaviour is unchanged when Leios is disabled. Joint delivery with Intersect's release-engineering function — IOG writes the protocol code, Intersect handles the upstream merge cadence and the SPO release support."
+    },
+    {
+      "node": "wp-leios-3-security-analysis",
+      "depth": 1,
+      "title": "WP3 — Independent security and cryptographic analysis",
+      "narrative": "[WP3](node:wp-leios-3-security-analysis) is multi-vendor by design: external cryptography teams analyse liveness and safety of the three-pipeline construction under adversarial input rates, incentive compatibility for honest block producers, DoS resistance of the input-block diffusion path, and an empirical attack-cost study against the live Praos baseline.\n\nThe multi-vendor angle is a deliberate response to community pressure for independent review — IOG is the implementation team; the audit chain is held by parties IOG does not pay directly."
+    },
+    {
+      "node": "wp-leios-4-mainnet-activation",
+      "depth": 1,
+      "title": "WP4 — Mainnet activation, the headline deliverable",
+      "narrative": "[WP4](node:wp-leios-4-mainnet-activation) is the operational readiness package: SPO upgrade documentation rehearsed on a Leios devnet, exchange and wallet provider coordination, hard-fork combinator activation parameters, post-activation monitoring plan, rollback design.\n\nIt closes on the [end-of-2026 mainnet activation milestone](node:leios-ms-mainnet-activation) — the single deliverable on which the whole proposal is judged."
+    },
+    {
+      "node": "leios-ms-mainnet-activation",
+      "depth": 1,
+      "title": "The headline milestone — Leios live on mainnet, Q4 2026",
+      "narrative": "Everything in the proposal predicates this single [milestone](node:leios-ms-mainnet-activation): Ouroboros Leios active on Cardano mainnet by end of 2026.\n\nIt requires the spec freeze, the audit-cleared reference implementation, the SPO/exchange/wallet coordination, and the hard-fork activation parameters all in place. Slippage on any prior work package compounds onto this date — the activation window is the proposal's critical-path constraint."
+    },
+    {
+      "node": "org-intersect",
+      "depth": 1,
+      "title": "Why Intersect is the administrator, not just a passive cheque writer",
+      "narrative": "[Intersect](node:org-intersect) is the administrator of every Budget 2026 proposal — milestone oversight, smart-contract disbursement, third-party reviews, reporting. For Leios this matters more than usual: the protocol change is large enough that the activation window touches every SPO, exchange and wallet, and Intersect's release-engineering function is the contractual backstop for the rollout coordination in WP4."
+    }
+  ]
+}

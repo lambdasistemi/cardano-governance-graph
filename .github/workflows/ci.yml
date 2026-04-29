@@ -16,20 +16,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: lambdasistemi/graph-browser/validate-action@v1.0.0
-        with:
-          version: v1.0.0
 
       # Temporary inline build of graph-browser to exercise the Solo
-      # source-selection mode (lambdasistemi/graph-browser#86) on the
-      # surge preview before the upstream release is cut. Revert to
+      # source-selection mode and the new 'background' flag
+      # (lambdasistemi/graph-browser#86) on the surge preview before
+      # the upstream release is cut. Revert to
       # `lambdasistemi/graph-browser/build-action@vX.Y.Z` after #86 lands.
       - name: Checkout graph-browser PR #86
         uses: actions/checkout@v4
         with:
           repository: lambdasistemi/graph-browser
-          ref: 7fb380a
+          ref: ca954c3
           path: graph-browser
+
+      # Validate against the schema bundled in the PR #86 checkout so
+      # the new 'background' field is recognised. Once #86 is released,
+      # revert to `version: v<new-tag>`.
+      - uses: lambdasistemi/graph-browser/validate-action@v1.0.0
+        with:
+          schema-dir: graph-browser/schema
+
       - uses: paolino/dev-assets/setup-nix@v0.0.1
         with:
           cachix-auth-token: "${{ secrets.CACHIX_AUTH_TOKEN }}"

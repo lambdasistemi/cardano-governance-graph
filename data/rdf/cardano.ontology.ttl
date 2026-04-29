@@ -41,6 +41,78 @@ cardano:CardanoSmartContractScheme a skos:ConceptScheme ;
   rdfs:label "Cardano Smart Contracts" ;
   dcterms:description "Plutus platform, languages, EUTxO model, and tooling." .
 
+cardano:BudgetProposalScheme a skos:ConceptScheme ;
+  rdfs:label "Budget Proposal Classification" ;
+  dcterms:description "Two-axis classification for cardano:BudgetProposal instances: Workstream (what the proposal builds) and Status (lifecycle stage). Proposals declare membership via dcterms:subject; the two axes are independent and may both be set." .
+
+# -- Workstream axis (what the proposal builds) -------------------------------
+# 8 workstreams covering the Budget 2026 cycle. A proposal MAY carry more
+# than one if it spans domains.
+
+cardano:Workstream-Consensus a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Consensus" ;
+  dcterms:description "Ouroboros consensus protocol research, design, and implementation — Leios, Peras, Tachýs, certificate aggregation, header diffusion." .
+
+cardano:Workstream-L2 a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "L2 Scalability" ;
+  dcterms:description "Layer 2 scaling: Hydra, Midgard, partner chains, isomorphic state channels, sidechains, optimistic rollups." .
+
+cardano:Workstream-SmartContracts a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Smart Contracts" ;
+  dcterms:description "Plutus core: language design, runtime, cost model, builtins, formal specification, formal verification toolkits." .
+
+cardano:Workstream-DeFi a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "DeFi" ;
+  dcterms:description "Application-layer DeFi: lending, AMMs, stablecoins, oracles, BTC bridges, cross-chain liquidity, dApp protocols." .
+
+cardano:Workstream-Tooling a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Tooling" ;
+  dcterms:description "Developer experience: SDKs, IDE plugins, CLIs, transaction builders, simulators, documentation, onboarding paths." .
+
+cardano:Workstream-Maintenance a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Maintenance" ;
+  dcterms:description "Core platform maintenance: cardano-node, cardano-cli, ledger, security patches, performance regressions, operational reliability." .
+
+cardano:Workstream-Infrastructure a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Infrastructure" ;
+  dcterms:description "Infrastructure providers and indexers: Blockfrost, db-sync, Ogmios, Kupo, chain-following, RPC layers, monitoring." .
+
+cardano:Workstream-Ecosystem a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Ecosystem" ;
+  dcterms:description "Ecosystem development: marketing, demand generation, partnerships, events, education, community programs." .
+
+# -- Status axis (lifecycle stage) --------------------------------------------
+# 4-state lifecycle per Decision 6: Submitted → Voting → Approved → Rejected.
+# Approved collapses Ratified+Enacted; Rejected covers withdrawn-or-failed.
+
+cardano:Status-Submitted a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Submitted" ;
+  dcterms:description "Proposal is published on Intersect and open for community comment, but the on-chain DRep voting window has not opened yet." .
+
+cardano:Status-Voting a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Voting" ;
+  dcterms:description "Proposal is live on-chain as a Treasury Withdrawal governance action; DReps, SPOs, and the Constitutional Committee are voting within the action lifetime." .
+
+cardano:Status-Approved a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Approved" ;
+  dcterms:description "Proposal cleared all voting thresholds and is ratified or already enacted. Treasury funds are released per the proposal's milestone schedule." .
+
+cardano:Status-Rejected a skos:Concept ;
+  skos:inScheme cardano:BudgetProposalScheme ;
+  skos:prefLabel "Rejected" ;
+  dcterms:description "Proposal failed to clear voting thresholds, expired, or was withdrawn before enactment. No treasury funds released." .
+
 # ==============================================================================
 # Classes — Governance domain
 # ==============================================================================

@@ -33,11 +33,11 @@ jobs:
       - uses: paolino/dev-assets/setup-nix@v0.0.1
         with:
           cachix-auth-token: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build graph-browser bundle
+      - name: Build graph-browser bundle (lib-mode, matches release artefact)
         run: |
           cd graph-browser
           nix develop --quiet -c npm install
-          nix develop --quiet -c just bundle
+          nix develop --quiet -c just bundle-lib
       - name: Assemble site
         run: |
           mkdir -p site

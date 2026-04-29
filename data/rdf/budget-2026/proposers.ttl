@@ -1,0 +1,85 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Shared proposer / co-lead organisation nodes referenced by multiple
+#  Budget 2026 proposals. Co-located here so individual proposal files
+#  stay focused on their own facts.
+# =========================================================================
+
+n:org-input-output a cardano:Proposer ;
+  a gb:Node ;
+  a gbkind:actor ;
+  gb:nodeId "org-input-output" ;
+  rdfs:label "Input | Output Global" ;
+  gb:group gbgroup:actors ;
+  dcterms:description "Engineering organisation behind Cardano (formerly IOHK / IOG). Submitter of nine of the Budget 2026 treasury proposals (Developer Experience, Cardano Upgrades, Consensus / Leios, L2 Scalability, High Assurance, Maintenance, Plutus, Pogun, Blockfrost) and a coalition partner on the Critical Integrations Budget." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://www.iog.io/> .
+
+n:org-emurgo a cardano:Proposer ;
+  a gb:Node ;
+  a gbkind:actor ;
+  gb:nodeId "org-emurgo" ;
+  rdfs:label "EMURGO" ;
+  gb:group gbgroup:actors ;
+  dcterms:description "Founding entity of Cardano focused on commercial adoption, enterprise partnerships, and ecosystem investments. Coalition partner on the Cardano Critical Integrations Budget 2026 proposal." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://www.emurgo.io/> .
+
+n:org-cardano-foundation a cardano:Proposer ;
+  a gb:Node ;
+  a gbkind:actor ;
+  gb:nodeId "org-cardano-foundation" ;
+  rdfs:label "Cardano Foundation" ;
+  gb:group gbgroup:actors ;
+  dcterms:description "Independent, Swiss-based standards organisation overseeing the Cardano protocol, ecosystem coordination, and adoption. Coalition partner on the Critical Integrations Budget 2026 proposal." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://cardanofoundation.org/> .
+
+n:org-midnight-foundation a cardano:Proposer ;
+  a gb:Node ;
+  a gbkind:actor ;
+  gb:nodeId "org-midnight-foundation" ;
+  rdfs:label "Midnight Foundation" ;
+  gb:group gbgroup:actors ;
+  dcterms:description "Steward of the Midnight partner chain — Cardano's confidentiality-focused L2 network. Coalition partner on the Critical Integrations Budget 2026 proposal." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://midnight.network/> .
+
+n:org-blockfrost-team a cardano:Proposer ;
+  a gb:Node ;
+  a gbkind:actor ;
+  gb:nodeId "org-blockfrost-team" ;
+  rdfs:label "Blockfrost Team" ;
+  gb:group gbgroup:actors ;
+  dcterms:description "Team behind the Blockfrost API platform — the dominant indexing and JSON-RPC layer for Cardano. Submitter of the Budget 2026 Blockfrost proposal (Project Cayley + free-tier API operational subsidy)." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://blockfrost.io/> .
+
+n:org-midgard-labs a cardano:Proposer ;
+  a gb:Node ;
+  a gbkind:actor ;
+  gb:nodeId "org-midgard-labs" ;
+  rdfs:label "Midgard Labs" ;
+  gb:group gbgroup:actors ;
+  dcterms:description "Team building Midgard, an optimistic-rollup L2 for Cardano. Co-leads the Budget 2026 L2 Scalability proposal alongside IOG and the Hydra team." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://midgard.xyz/> .
+
+n:org-vacuumlabs a cardano:Proposer ;
+  a gb:Node ;
+  a gbkind:actor ;
+  gb:nodeId "org-vacuumlabs" ;
+  rdfs:label "VacuumLabs" ;
+  gb:group gbgroup:actors ;
+  dcterms:description "Cardano-focused engineering partner, long-time contributor to wallet, ledger, and Plutus tooling. Co-lead on the Budget 2026 Plutus proposal alongside IOG." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://vacuumlabs.com/> .

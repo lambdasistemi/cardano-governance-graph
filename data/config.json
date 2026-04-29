@@ -7,9 +7,20 @@
     { "label": "Cardano Domain",                          "format": "text/turtle", "path": "data/rdf/cardano.ttl" },
     { "label": "Governance",                              "format": "text/turtle", "path": "data/rdf/governance.ttl" },
     { "label": "Smart Contracts",                         "format": "text/turtle", "path": "data/rdf/smart-contracts.ttl" },
+    { "label": "Budget 2026 — Proposers",                 "format": "text/turtle", "path": "data/rdf/budget-2026/proposers.ttl" },
     { "label": "Budget 2026 — Partner Chain Factory",     "format": "text/turtle", "path": "data/rdf/budget-2026/partner-chain-factory.ttl" },
     { "label": "Budget 2026 — Indigo V2030RS",            "format": "text/turtle", "path": "data/rdf/budget-2026/indigo-v2030rs.ttl" },
-    { "label": "Budget 2026 — Serviceplan Demand Engine", "format": "text/turtle", "path": "data/rdf/budget-2026/serviceplan-demand-engine.ttl" }
+    { "label": "Budget 2026 — Serviceplan Demand Engine", "format": "text/turtle", "path": "data/rdf/budget-2026/serviceplan-demand-engine.ttl" },
+    { "label": "Budget 2026 — IO Developer Experience",   "format": "text/turtle", "path": "data/rdf/budget-2026/io-developer-experience.ttl" },
+    { "label": "Budget 2026 — IO Cardano Upgrades",       "format": "text/turtle", "path": "data/rdf/budget-2026/io-cardano-upgrades.ttl" },
+    { "label": "Budget 2026 — IO Consensus (Leios)",      "format": "text/turtle", "path": "data/rdf/budget-2026/io-consensus-leios.ttl" },
+    { "label": "Budget 2026 — IO L2 Scalability",         "format": "text/turtle", "path": "data/rdf/budget-2026/io-l2-scalability.ttl" },
+    { "label": "Budget 2026 — IO High Assurance",         "format": "text/turtle", "path": "data/rdf/budget-2026/io-high-assurance.ttl" },
+    { "label": "Budget 2026 — IO Maintenance",            "format": "text/turtle", "path": "data/rdf/budget-2026/io-maintenance.ttl" },
+    { "label": "Budget 2026 — IO Plutus",                 "format": "text/turtle", "path": "data/rdf/budget-2026/io-plutus.ttl" },
+    { "label": "Budget 2026 — IO Pogun",                  "format": "text/turtle", "path": "data/rdf/budget-2026/io-pogun.ttl" },
+    { "label": "Budget 2026 — IO Blockfrost",             "format": "text/turtle", "path": "data/rdf/budget-2026/io-blockfrost.ttl" },
+    { "label": "Budget 2026 — Critical Integrations",     "format": "text/turtle", "path": "data/rdf/budget-2026/critical-integrations.ttl" }
   ],
   "kinds": {
     "actor": {

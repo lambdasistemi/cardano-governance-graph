@@ -1,0 +1,34 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — IO Proposal: Plutus
+#  Proposer: Input | Output Global  |  Lead: Ziyang Liu
+#  Joint delivery: IOG + VacuumLabs
+#  Reference: https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview
+# =========================================================================
+
+n:bp-io-plutus a cardano:BudgetProposal ;
+  a gb:Node ;
+  a gbkind:proposal ;
+  gb:nodeId "bp-io-plutus" ;
+  rdfs:label "Budget 2026 — IO Plutus" ;
+  gb:group gbgroup:proposals ;
+  cardano:applicantType "Company" ;
+  dcterms:description "Three Plutus-platform workstreams: developer-experience improvements (errors, traces, profiling), execution-efficiency work targeting roughly 25% reduction in script preparation overhead, and continued formal-specification effort for the Plutus Core language. Joint delivery between IOG and VacuumLabs. Lead: Ziyang Liu." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview> ;
+  dcterms:subject cardano:Workstream-SmartContracts ,
+                  cardano:Status-Voting .
+
+n:bp-io-plutus cardano:partOfBudgetProcess n:cardano-budget-2026 .
+n:bp-io-plutus cardano:proposedBy n:org-input-output .
+n:bp-io-plutus cardano:administeredBy n:org-intersect .
+n:bp-io-plutus cardano:proposedBy n:org-vacuumlabs .

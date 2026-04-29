@@ -1,0 +1,34 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — IO Proposal: L2 Scalability
+#  Proposer: Input | Output Global  |  Lead: Sharan Koneria
+#  Joint delivery: IOG + Midgard Labs (+ Hydra team)
+#  Reference: https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview
+# =========================================================================
+
+n:bp-io-l2-scalability a cardano:BudgetProposal ;
+  a gb:Node ;
+  a gbkind:proposal ;
+  gb:nodeId "bp-io-l2-scalability" ;
+  rdfs:label "Budget 2026 — IO L2 Scalability" ;
+  gb:group gbgroup:proposals ;
+  cardano:applicantType "Company" ;
+  dcterms:description "Production-readiness package for Cardano's L2 stack: Hydra Head hardening (operational tooling, bridges, observability), Midgard optimistic-rollup mainnet launch, and a shared L2 primitives library that future L2 projects can reuse. Joint delivery between IOG, Midgard Labs, and the Hydra team. Lead: Sharan Koneria." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview> ;
+  dcterms:subject cardano:Workstream-L2 ,
+                  cardano:Status-Voting .
+
+n:bp-io-l2-scalability cardano:partOfBudgetProcess n:cardano-budget-2026 .
+n:bp-io-l2-scalability cardano:proposedBy n:org-input-output .
+n:bp-io-l2-scalability cardano:administeredBy n:org-intersect .
+n:bp-io-l2-scalability cardano:proposedBy n:org-midgard-labs .

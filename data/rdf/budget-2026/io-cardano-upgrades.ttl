@@ -1,0 +1,32 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — IO Proposal: Cardano Upgrades
+#  Proposer: Input | Output Global  |  Lead: Alexey Kuleshevich
+#  Reference: https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview
+# =========================================================================
+
+n:bp-io-cardano-upgrades a cardano:BudgetProposal ;
+  a gb:Node ;
+  a gbkind:proposal ;
+  gb:nodeId "bp-io-cardano-upgrades" ;
+  rdfs:label "Budget 2026 — IO Cardano Upgrades" ;
+  gb:group gbgroup:proposals ;
+  cardano:applicantType "Company" ;
+  dcterms:description "Three platform-level ledger upgrades bundled into a single proposal: CIP-159 native micro-fee support, CPS-23 multi-asset on-chain treasury, and Babel Fees (paying transaction fees in non-ADA assets without holding ADA). All three target user-onboarding friction and treasury flexibility. Lead: Alexey Kuleshevich." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview> ;
+  dcterms:subject cardano:Workstream-SmartContracts ,
+                  cardano:Status-Voting .
+
+n:bp-io-cardano-upgrades cardano:partOfBudgetProcess n:cardano-budget-2026 .
+n:bp-io-cardano-upgrades cardano:proposedBy n:org-input-output .
+n:bp-io-cardano-upgrades cardano:administeredBy n:org-intersect .

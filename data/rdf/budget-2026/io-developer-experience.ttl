@@ -1,0 +1,32 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — IO Proposal: Developer Experience
+#  Proposer: Input | Output Global  |  Lead: Robertino Martinez
+#  Reference: https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview
+# =========================================================================
+
+n:bp-io-developer-experience a cardano:BudgetProposal ;
+  a gb:Node ;
+  a gbkind:proposal ;
+  gb:nodeId "bp-io-developer-experience" ;
+  rdfs:label "Budget 2026 — IO Developer Experience" ;
+  gb:group gbgroup:proposals ;
+  cardano:applicantType "Company" ;
+  dcterms:description "Six-month IO programme to improve Cardano developer experience: tooling consolidation, documentation overhaul, structured onboarding paths, and zero-to-MVP acceleration. Targets 30%+ growth in active developer adoption over the funding period. Lead: Robertino Martinez." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview> ;
+  dcterms:subject cardano:Workstream-Tooling ,
+                  cardano:Status-Voting .
+
+n:bp-io-developer-experience cardano:partOfBudgetProcess n:cardano-budget-2026 .
+n:bp-io-developer-experience cardano:proposedBy n:org-input-output .
+n:bp-io-developer-experience cardano:administeredBy n:org-intersect .

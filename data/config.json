@@ -3,13 +3,13 @@
   "description": "Interactive knowledge maps of the Cardano ecosystem — governance, smart contracts, and more.",
   "sourceUrl": "https://github.com/lambdasistemi/cardano-knowledge-maps",
   "graphSources": [
-    { "format": "text/turtle", "path": "data/rdf/cardano.ontology.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/cardano.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/governance.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/smart-contracts.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/budget-2026/partner-chain-factory.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/budget-2026/indigo-v2030rs.ttl" },
-    { "format": "text/turtle", "path": "data/rdf/budget-2026/serviceplan-demand-engine.ttl" }
+    { "label": "Cardano Ontology",                        "format": "text/turtle", "path": "data/rdf/cardano.ontology.ttl" },
+    { "label": "Cardano Domain",                          "format": "text/turtle", "path": "data/rdf/cardano.ttl" },
+    { "label": "Governance",                              "format": "text/turtle", "path": "data/rdf/governance.ttl" },
+    { "label": "Smart Contracts",                         "format": "text/turtle", "path": "data/rdf/smart-contracts.ttl" },
+    { "label": "Budget 2026 — Partner Chain Factory",     "format": "text/turtle", "path": "data/rdf/budget-2026/partner-chain-factory.ttl" },
+    { "label": "Budget 2026 — Indigo V2030RS",            "format": "text/turtle", "path": "data/rdf/budget-2026/indigo-v2030rs.ttl" },
+    { "label": "Budget 2026 — Serviceplan Demand Engine", "format": "text/turtle", "path": "data/rdf/budget-2026/serviceplan-demand-engine.ttl" }
   ],
   "kinds": {
     "actor": {

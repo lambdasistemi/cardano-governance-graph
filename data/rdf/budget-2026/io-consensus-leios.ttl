@@ -81,7 +81,47 @@ n:bp-io-consensus-leios cardano:enables n:ouroboros-leios .
   rdf:object n:ouroboros-leios ;
   dcterms:description "Ouroboros Leios is the protocol; this proposal is the Budget 2026 vehicle that funds the work needed to ship it on mainnet — formal spec freeze, reference implementation, security analysis, and the network-wide activation that turns the protocol from research artefact into a live consensus regime." .
 
-# -- Programme milestone: end-of-2026 mainnet activation ------------------
+# -- Programme milestones (spec → impl → audit → activation) --------------
+
+n:leios-ms-spec-freeze a cardano:WorkPackageMilestone ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "leios-ms-spec-freeze" ;
+  rdfs:label "Leios Programme Milestone — Specification Freeze (M3)" ;
+  gb:group gbgroup:concepts ;
+  cardano:milestoneMonth "3"^^xsd:integer ;
+  dcterms:description "Frozen, implementation-grade specification published: input-block / endorsement-block / ranking-block diffusion semantics, fee surface, parameter ranges, and the Praos / Peras / Tachýs composition contract. Becomes the immovable target for both the reference implementation and the security analysis — slippage here propagates to every later milestone." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+n:leios-ms-reference-impl-merged a cardano:WorkPackageMilestone ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "leios-ms-reference-impl-merged" ;
+  rdfs:label "Leios Programme Milestone — Reference Implementation Merged (M6)" ;
+  gb:group gbgroup:concepts ;
+  cardano:milestoneMonth "6"^^xsd:integer ;
+  dcterms:description "Production-quality Leios implementation merged into cardano-node: input-block diffusion pipeline, endorsement-block aggregation, mempool changes, and the Praos/Leios toggle so existing Praos behaviour is unchanged when Leios is disabled. Cuts the first cardano-node release with Leios opt-in available." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+n:leios-ms-audit-cleared a cardano:WorkPackageMilestone ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "leios-ms-audit-cleared" ;
+  rdfs:label "Leios Programme Milestone — Independent Audit Cleared (M9)" ;
+  gb:group gbgroup:concepts ;
+  cardano:milestoneMonth "9"^^xsd:integer ;
+  dcterms:description "Multi-vendor security and cryptographic analysis closed with all critical and high findings resolved against the merged reference implementation. Covers liveness/safety of the three-pipeline construction, incentive compatibility for honest block producers, DoS resistance of input-block diffusion, and an empirical attack-cost study against the live Praos baseline." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+n:leios-ms-devnet-rehearsal a cardano:WorkPackageMilestone ;
+  a gb:Node ;
+  a gbkind:concept ;
+  gb:nodeId "leios-ms-devnet-rehearsal" ;
+  rdfs:label "Leios Programme Milestone — Devnet Activation Rehearsal (M11)" ;
+  gb:group gbgroup:concepts ;
+  cardano:milestoneMonth "11"^^xsd:integer ;
+  dcterms:description "End-to-end activation rehearsal on a Leios devnet: SPO upgrade procedure walked through, exchange and wallet provider integration verified, hard-fork combinator parameters validated, monitoring dashboards live, rollback runbook executed dry. Last gate before the mainnet activation window." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
 
 n:leios-ms-mainnet-activation a cardano:WorkPackageMilestone ;
   a gb:Node ;
@@ -92,6 +132,22 @@ n:leios-ms-mainnet-activation a cardano:WorkPackageMilestone ;
   cardano:milestoneMonth "12"^^xsd:integer ;
   dcterms:description "Headline deliverable of the proposal: Ouroboros Leios active on Cardano mainnet by end of 2026. Predicated on prior milestones for spec freeze, reference implementation cleared by audit, and a coordinated SPO/exchange/wallet upgrade rollout." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+
+# Lifecycle chain: each milestone is the prerequisite for the next.
+n:leios-ms-spec-freeze            cardano:leadsTo n:leios-ms-reference-impl-merged .
+n:leios-ms-reference-impl-merged  cardano:leadsTo n:leios-ms-audit-cleared .
+n:leios-ms-audit-cleared          cardano:leadsTo n:leios-ms-devnet-rehearsal .
+n:leios-ms-devnet-rehearsal       cardano:leadsTo n:leios-ms-mainnet-activation .
+
+# The mainnet-activation milestone is the on-chain event that activates
+# the Leios protocol on the live network.
+n:leios-ms-mainnet-activation cardano:enables n:ouroboros-leios .
+
+[] a rdf:Statement ;
+  rdf:subject n:leios-ms-mainnet-activation ;
+  rdf:predicate cardano:enables ;
+  rdf:object n:ouroboros-leios ;
+  dcterms:description "The activation milestone is not just a project deliverable — it is the on-chain event (hard-fork combinator activation) that turns Ouroboros Leios from an opt-in cardano-node feature into the live consensus regime running Cardano mainnet." .
 
 # -- Work packages --------------------------------------------------------
 
@@ -111,6 +167,7 @@ n:wp-leios-1-formal-spec a cardano:WorkPackage ;
   cardano:initiativeStatus "Continued Initiative" ;
   dcterms:description "Convert the in-flight Leios research into a frozen, implementation-grade specification: input-block, endorsement-block, and ranking-block diffusion semantics, fee-and-incentive surface, parameter ranges, and the Praos / Peras / Tachýs composition contract. Output is the artifact that the reference implementation and the security analysis both target." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+n:wp-leios-1-formal-spec cardano:hasWorkPackageMilestone n:leios-ms-spec-freeze .
 
 n:wp-leios-2-reference-impl a cardano:WorkPackage ;
   a gb:Node ;
@@ -122,6 +179,7 @@ n:wp-leios-2-reference-impl a cardano:WorkPackage ;
   cardano:initiativeStatus "New Initiative" ;
   dcterms:description "Production-quality Leios implementation merged into cardano-node: input-block diffusion pipeline, endorsement-block aggregation, mempool changes for the higher transaction rate, and a Praos/Leios toggle so existing Praos behaviour is unchanged when Leios is disabled. Joint delivery with Intersect's release-engineering function." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+n:wp-leios-2-reference-impl cardano:hasWorkPackageMilestone n:leios-ms-reference-impl-merged .
 
 n:wp-leios-3-security-analysis a cardano:WorkPackage ;
   a gb:Node ;
@@ -133,6 +191,7 @@ n:wp-leios-3-security-analysis a cardano:WorkPackage ;
   cardano:initiativeStatus "New Initiative" ;
   dcterms:description "Independent security analysis covering: liveness and safety of the three-pipeline construction under adversarial input rates, incentive compatibility for honest block producers, DoS resistance of the input-block diffusion path, and an empirical attack-cost study against the live Praos baseline. Multi-vendor: a portion of the work goes to external cryptography teams." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+n:wp-leios-3-security-analysis cardano:hasWorkPackageMilestone n:leios-ms-audit-cleared .
 
 n:wp-leios-4-mainnet-activation a cardano:WorkPackage ;
   a gb:Node ;
@@ -144,6 +203,7 @@ n:wp-leios-4-mainnet-activation a cardano:WorkPackage ;
   cardano:initiativeStatus "New Initiative" ;
   dcterms:description "Operational readiness for the network-wide upgrade: SPO upgrade documentation and rehearsal on a Leios devnet, exchange and wallet provider coordination, hard-fork combinator activation parameters, post-activation monitoring plan, rollback design. Closes on the end-of-2026 mainnet activation milestone." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> .
+n:wp-leios-4-mainnet-activation cardano:hasWorkPackageMilestone n:leios-ms-devnet-rehearsal .
 n:wp-leios-4-mainnet-activation cardano:hasWorkPackageMilestone n:leios-ms-mainnet-activation .
 
 n:wp-leios-5-coordination a cardano:WorkPackage ;

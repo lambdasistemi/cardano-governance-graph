@@ -19,9 +19,43 @@ jobs:
       - uses: lambdasistemi/graph-browser/validate-action@v1.0.0
         with:
           version: v1.0.0
-      - uses: lambdasistemi/graph-browser/build-action@v1.0.0
+
+      # Temporary inline build of graph-browser to exercise the Solo
+      # source-selection mode (lambdasistemi/graph-browser#86) on the
+      # surge preview before the upstream release is cut. Revert to
+      # `lambdasistemi/graph-browser/build-action@vX.Y.Z` after #86 lands.
+      - name: Checkout graph-browser PR #86
+        uses: actions/checkout@v4
         with:
-          version: v1.0.0
+          repository: lambdasistemi/graph-browser
+          ref: 0d5d3a4abfe59c00ce6433b9468bbdb4ddaadad2
+          path: graph-browser
+      - uses: paolino/dev-assets/setup-nix@v0.0.1
+        with:
+          cachix-auth-token: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Build graph-browser bundle
+        run: |
+          cd graph-browser
+          nix develop --quiet -c npm install
+          nix develop --quiet -c just bundle
+      - name: Assemble site
+        run: |
+          mkdir -p site
+          cp graph-browser/dist/index.html site/
+          cp graph-browser/dist/index.js   site/
+          cp -r data site/data
+          if [ -d site/data/views ] && [ ! -f site/data/views/index.json ]; then
+            node -e "
+              const fs=require('fs');
+              const dir='site/data/views';
+              const idx=fs.readdirSync(dir)
+                .filter(f=>f.endsWith('.json'))
+                .map(f=>{const v=JSON.parse(fs.readFileSync(dir+'/'+f,'utf8'));return{name:v.name,description:v.description,file:f};});
+              fs.writeFileSync(dir+'/index.json',JSON.stringify(idx,null,2));
+            "
+          fi
+          rm -rf graph-browser
+
       - name: Deploy PR preview
         if: github.event_name == 'pull_request'
         run: npx surge site ${{ github.repository_owner }}-${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}

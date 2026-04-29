@@ -1,0 +1,33 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — IO Proposal: Consensus / Leios
+#  Proposer: Input | Output Global  |  Lead: Carlos Lopez De Lara
+#  Joint delivery: IOG + Intersect + multi-vendor consortium
+#  Reference: https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview
+# =========================================================================
+
+n:bp-io-consensus-leios a cardano:BudgetProposal ;
+  a gb:Node ;
+  a gbkind:proposal ;
+  gb:nodeId "bp-io-consensus-leios" ;
+  rdfs:label "Budget 2026 — IO Consensus (Leios)" ;
+  gb:group gbgroup:proposals ;
+  cardano:applicantType "Company" ;
+  dcterms:description "Delivery of the Leios consensus upgrade — Ouroboros throughput-focused extension targeting a 10–65× sustained transaction-rate increase. Includes formal specification, reference implementation, security analysis, and mainnet-readiness work, with end-of-2026 mainnet activation as the headline milestone. Joint delivery between IOG, Intersect, and a multi-vendor consortium. Lead: Carlos Lopez De Lara." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://www.iog.io/news/io-treasury-proposals-the-5-minute-overview> ;
+  dcterms:subject cardano:Workstream-Consensus ,
+                  cardano:Status-Voting .
+
+n:bp-io-consensus-leios cardano:partOfBudgetProcess n:cardano-budget-2026 .
+n:bp-io-consensus-leios cardano:proposedBy n:org-input-output .
+n:bp-io-consensus-leios cardano:administeredBy n:org-intersect .

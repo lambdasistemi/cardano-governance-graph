@@ -1,0 +1,42 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix gb:      <https://lambdasistemi.github.io/graph-browser/vocab/terms#> .
+@prefix gbkind:  <https://lambdasistemi.github.io/graph-browser/vocab/kinds#> .
+@prefix gbgroup: <https://lambdasistemi.github.io/graph-browser/vocab/groups#> .
+@prefix cardano: <https://lambdasistemi.github.io/cardano-knowledge-maps/vocab/cardano#> .
+@prefix n:       <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf/node/> .
+
+# =========================================================================
+#  Cardano Budget 2026 — Proposal: Critical Integrations Budget
+#  Coalition: Input | Output Global + EMURGO + Cardano Foundation
+#             + Intersect + Midnight Foundation
+#  Request: 70,000,000 ADA
+#  Reference:
+#    https://intersectmbo.org/news/priming-cardano-for-2026-through-the-critical-integrations-budget-proposal
+# =========================================================================
+
+n:bp-critical-integrations a cardano:BudgetProposal ;
+  a gb:Node ;
+  a gbkind:proposal ;
+  gb:nodeId "bp-critical-integrations" ;
+  rdfs:label "Budget 2026 — Cardano Critical Integrations Budget" ;
+  gb:group gbgroup:proposals ;
+  cardano:applicantType "Company" ;
+  cardano:requestedAdaAmount "70000000"^^xsd:decimal ;
+  dcterms:description "₳70M coalition proposal funding ecosystem-critical integrations across the Cardano stack — wallet connectors, governance metadata pipelines, partner-chain bridges, Midnight cross-protocol plumbing, and shared infrastructure that no single proposer would shoulder alone. Submitted by a five-organisation coalition: IOG, EMURGO, Cardano Foundation, Intersect, and the Midnight Foundation." ;
+  dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
+  foaf:page <https://intersectmbo.org/news/priming-cardano-for-2026-through-the-critical-integrations-budget-proposal> ;
+  dcterms:subject cardano:Workstream-Infrastructure ,
+                  cardano:Workstream-Ecosystem ,
+                  cardano:Status-Voting .
+
+n:bp-critical-integrations cardano:partOfBudgetProcess n:cardano-budget-2026 .
+n:bp-critical-integrations cardano:administeredBy n:org-intersect .
+n:bp-critical-integrations cardano:proposedBy n:org-input-output .
+n:bp-critical-integrations cardano:proposedBy n:org-emurgo .
+n:bp-critical-integrations cardano:proposedBy n:org-cardano-foundation .
+n:bp-critical-integrations cardano:proposedBy n:org-intersect .
+n:bp-critical-integrations cardano:proposedBy n:org-midnight-foundation .

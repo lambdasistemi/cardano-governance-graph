@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: lambdasistemi/graph-browser
-          ref: 0d5d3a4abfe59c00ce6433b9468bbdb4ddaadad2
+          ref: 7fb380a
           path: graph-browser
       - uses: paolino/dev-assets/setup-nix@v0.0.1
         with:

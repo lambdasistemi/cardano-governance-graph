@@ -33,7 +33,9 @@ n:bp-indigo-v2030rs a cardano:BudgetProposal ;
   cardano:applicantType "Company" ;
   dcterms:description "Cardano Budget 2026 proposal requesting 3,965,500 ADA (USD ~1.19M @ 0.30). Four-track scope: (1) iUSDt — institutional-grade tokenized RWA stablecoin linking Cardano with institutional liquidity funds; (2) Bitcoin DeFi markets on Indigo; (3) shielded iAssets on partner-chain ecosystems; (4) V2030RS — a landmark revenue-sharing model with the Cardano Treasury. Submitted on 2026-04-20." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
-  foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e63a4ed6a29288536b11fc> .
+  foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e63a4ed6a29288536b11fc> ;
+  dcterms:subject cardano:Workstream-DeFi ,
+                  cardano:Status-Voting .
 
 n:bp-indigo-v2030rs cardano:partOfBudgetProcess n:cardano-budget-2026 .
 n:bp-indigo-v2030rs cardano:proposedBy n:org-indigo-foundation .

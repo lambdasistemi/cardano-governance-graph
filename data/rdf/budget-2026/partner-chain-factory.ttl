@@ -35,7 +35,10 @@ n:bp-partner-chain-factory a cardano:BudgetProposal ;
   dcterms:description "15-month, six-partner consortium delivering an open-source Partner Chain Factory built on the Ouroboros Tachýs consensus variant: 1-2s confirmation, ~40× mainnet throughput, formal security analysis, automated deployment ≤4h, Cardano⇄partner-chain bridge with independent security audit, complete tooling and documentation, and two demonstrators (Vector internal testnet then Vector mainnet). Toolkit handed over to Intersect-maintained Cardano repositories at project close. Surplus ADA from FX above $0.25 returned to treasury." ;
   dcterms:isPartOf <https://github.com/lambdasistemi/cardano-knowledge-maps/rdf> ;
   foaf:page <https://hydra-voting.intersectmbo.org/votes/cardano-budget-2026/69e8c0e2ae91c89d305701f5> ;
-  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/pull/1149> .
+  rdfs:seeAlso <https://github.com/cardano-foundation/CIPs/pull/1149> ;
+  dcterms:subject cardano:Workstream-L2 ,
+                  cardano:Workstream-Infrastructure ,
+                  cardano:Status-Voting .
 
 n:bp-partner-chain-factory cardano:partOfBudgetProcess n:cardano-budget-2026 .
 n:bp-partner-chain-factory cardano:proposedBy n:org-ensurable-systems .

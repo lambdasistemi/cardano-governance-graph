@@ -16,52 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # Temporary inline build of graph-browser to exercise the Solo
-      # source-selection mode and the new 'background' flag
-      # (lambdasistemi/graph-browser#86) on the surge preview before
-      # the upstream release is cut. Revert to
-      # `lambdasistemi/graph-browser/build-action@vX.Y.Z` after #86 lands.
-      - name: Checkout graph-browser PR #86
-        uses: actions/checkout@v4
+      - uses: lambdasistemi/graph-browser/validate-action@v1.1.0
         with:
-          repository: lambdasistemi/graph-browser
-          ref: f82071901cf6c5f804ba958e3771256683aeef1e
-          path: graph-browser
-
-      # Validate against the schema bundled in the PR #86 checkout so
-      # the new 'background' field is recognised. Once #86 is released,
-      # revert to `version: v<new-tag>`.
-      - uses: lambdasistemi/graph-browser/validate-action@v1.0.0
+          version: v1.1.0
+      - uses: lambdasistemi/graph-browser/build-action@v1.1.0
         with:
-          schema-dir: graph-browser/schema
-
-      - uses: paolino/dev-assets/setup-nix@v0.0.1
-        with:
-          cachix-auth-token: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build graph-browser bundle (lib-mode, matches release artefact)
-        run: |
-          cd graph-browser
-          nix develop --quiet -c npm install
-          nix develop --quiet -c just bundle-lib
-      - name: Assemble site
-        run: |
-          mkdir -p site
-          cp graph-browser/dist/index.html site/
-          cp graph-browser/dist/index.js   site/
-          cp -r data site/data
-          if [ -d site/data/views ] && [ ! -f site/data/views/index.json ]; then
-            node -e "
-              const fs=require('fs');
-              const dir='site/data/views';
-              const idx=fs.readdirSync(dir)
-                .filter(f=>f.endsWith('.json'))
-                .map(f=>{const v=JSON.parse(fs.readFileSync(dir+'/'+f,'utf8'));return{name:v.name,description:v.description,file:f};});
-              fs.writeFileSync(dir+'/index.json',JSON.stringify(idx,null,2));
-            "
-          fi
-          rm -rf graph-browser
-
+          version: v1.1.0
       - name: Deploy PR preview
         if: github.event_name == 'pull_request'
         run: npx surge site ${{ github.repository_owner }}-${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}

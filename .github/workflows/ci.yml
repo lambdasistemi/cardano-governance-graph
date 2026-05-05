@@ -6,13 +6,20 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened, closed]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   validate:
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,6 +29,31 @@ jobs:
       - uses: lambdasistemi/graph-browser/build-action@v1.1.0
         with:
           version: v1.1.0
-      - name: Deploy PR preview
+      - name: Upload preview artifact
         if: github.event_name == 'pull_request'
-        run: npx surge site ${{ github.repository_owner }}-${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-site
+          path: site
+          if-no-files-found: error
+
+  pr-preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    needs: validate
+    runs-on: nixos
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: preview-site
+          path: site
+      - uses: paolino/dev-assets/static-preview@main
+        with:
+          path: site
+
+  pr-preview-cleanup:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: nixos
+    steps:
+      - uses: paolino/dev-assets/static-preview@main
+        with:
+          mode: cleanup
